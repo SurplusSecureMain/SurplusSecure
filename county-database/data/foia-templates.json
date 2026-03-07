@@ -1,0 +1,26 @@
+[
+  {
+    "id": "surplus-list",
+    "name": "Surplus Funds List Request",
+    "description": "Request list of properties with surplus funds from tax foreclosure sales",
+    "subject": "FOIA Request — Tax Foreclosure Surplus Funds Records",
+    "body": "Dear {treasurer_name},\n\nPursuant to Michigan's Freedom of Information Act (MCL 15.231 et seq.), I am requesting the following records from the {county_name} County Treasurer's Office:\n\n1. A list of all properties sold at tax foreclosure auction for the years {year_range} where the sale price exceeded the total amount of delinquent taxes, interest, penalties, and fees owed.\n\n2. For each such property, please provide:\n   a. The parcel identification number\n   b. The property address\n   c. The former owner(s) of record at the time of foreclosure\n   d. The total delinquent amount (taxes, interest, penalties, fees)\n   e. The auction sale price\n   f. The surplus amount (sale price minus total delinquent amount)\n   g. Whether the surplus has been claimed or remains unclaimed\n\n3. Any records reflecting the disposition of surplus funds, including amounts returned to former owners and amounts retained by the county.\n\nI am willing to pay reasonable fees for the processing of this request. Please inform me if the estimated cost will exceed $50.00 before processing.\n\nPer MCL 15.235(2), I request a response within five business days.\n\nThank you for your prompt attention to this request.\n\nSincerely,\n{sender_name}\n{sender_address}\n{sender_email}\n{sender_phone}",
+    "variables": ["treasurer_name", "county_name", "year_range", "sender_name", "sender_address", "sender_email", "sender_phone"]
+  },
+  {
+    "id": "claim-procedure",
+    "name": "Surplus Claim Procedure Inquiry",
+    "description": "Request information about how former owners can claim surplus funds",
+    "subject": "Inquiry — Surplus Funds Claim Procedure, {county_name} County",
+    "body": "Dear {treasurer_name},\n\nI am writing to request information regarding the process for former property owners to claim surplus funds resulting from tax foreclosure sales in {county_name} County.\n\nSpecifically, I would appreciate clarification on:\n\n1. What forms or documentation are required to file a surplus claim?\n2. Is there a deadline or statute of limitations for filing claims?\n3. What identification or proof of ownership is required from claimants?\n4. What is the typical processing time for approved claims?\n5. Are there any fees associated with filing a claim?\n6. Is there a designated contact person for surplus claims inquiries?\n\nThis information will help ensure that eligible former property owners can properly exercise their rights under Michigan law.\n\nThank you for your time and assistance.\n\nSincerely,\n{sender_name}\n{sender_email}\n{sender_phone}",
+    "variables": ["treasurer_name", "county_name", "sender_name", "sender_email", "sender_phone"]
+  },
+  {
+    "id": "follow-up",
+    "name": "FOIA Follow-Up / Overdue Response",
+    "description": "Follow up on a FOIA request that has not received a timely response",
+    "subject": "Follow-Up — FOIA Request Dated {original_date}, {county_name} County",
+    "body": "Dear {treasurer_name},\n\nI am writing to follow up on my Freedom of Information Act request submitted on {original_date} regarding tax foreclosure surplus funds records for {county_name} County.\n\nUnder MCL 15.235(2), a public body is required to respond to a FOIA request within five business days of receipt. As of today, {days_elapsed} business days have passed without a response.\n\nI respectfully request that you provide the requested records or a written notice of extension as provided under the Act at your earliest convenience.\n\nIf there are any questions regarding my original request, please contact me at {sender_phone} or {sender_email}.\n\nThank you for your attention to this matter.\n\nSincerely,\n{sender_name}",
+    "variables": ["treasurer_name", "county_name", "original_date", "days_elapsed", "sender_name", "sender_phone", "sender_email"]
+  }
+]

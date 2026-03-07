@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 630 360" width="630" height="360">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=DM+Sans:wght@400;500;700&amp;display=swap');
+    </style>
+  </defs>
+  <!-- Background -->
+  <rect width="630" height="360" fill="#FFFFFF"/>
+  <!-- Gold accent line at top -->
+  <rect x="0" y="0" width="630" height="5" fill="#C9943E"/>
+  <!-- Logo Mark -->
+  <rect x="40" y="40" width="56" height="56" rx="12" fill="#1B2A4A"/>
+  <text x="68" y="78" text-anchor="middle" font-family="'DM Serif Display', Georgia, serif" font-size="26" font-weight="700" fill="#C9943E">SS</text>
+  <!-- Logo Text -->
+  <text x="110" y="65" font-family="'DM Serif Display', Georgia, serif" font-size="22" fill="#1B2A4A">Surplus</text>
+  <text x="206" y="65" font-family="'DM Serif Display', Georgia, serif" font-size="22" fill="#C9943E">Secure</text>
+  <!-- Divider -->
+  <line x1="40" y1="115" x2="590" y2="115" stroke="#E8E4DD" stroke-width="1"/>
+  <!-- Name -->
+  <text x="40" y="155" font-family="'DM Serif Display', Georgia, serif" font-size="28" font-weight="400" fill="#1B2A4A">Kelli Meeks</text>
+  <!-- Title -->
+  <text x="40" y="180" font-family="'DM Sans', Helvetica, sans-serif" font-size="13" fill="#6B7894">Attorney &amp; Founder</text>
+  <!-- Contact Info -->
+  <text x="40" y="225" font-family="'DM Sans', Helvetica, sans-serif" font-size="12" fill="#C9943E" font-weight="700">P</text>
+  <text x="58" y="225" font-family="'DM Sans', Helvetica, sans-serif" font-size="12" fill="#3A4560">(734) 215-5540  (Call or Text)</text>
+  <text x="40" y="248" font-family="'DM Sans', Helvetica, sans-serif" font-size="12" fill="#C9943E" font-weight="700">E</text>
+  <text x="58" y="248" font-family="'DM Sans', Helvetica, sans-serif" font-size="12" fill="#3A4560">surplussecure@gmail.com</text>
+  <text x="40" y="271" font-family="'DM Sans', Helvetica, sans-serif" font-size="12" fill="#C9943E" font-weight="700">W</text>
+  <text x="58" y="271" font-family="'DM Sans', Helvetica, sans-serif" font-size="12" fill="#3A4560">surplus-secure.com</text>
+  <!-- Address -->
+  <text x="40" y="310" font-family="'DM Sans', Helvetica, sans-serif" font-size="11" fill="#999999">455 E Eisenhower Pkwy, Ste. 300</text>
+  <text x="40" y="328" font-family="'DM Sans', Helvetica, sans-serif" font-size="11" fill="#999999">Ann Arbor, MI 48108</text>
+  <!-- Tagline -->
+  <text x="590" y="328" text-anchor="end" font-family="'DM Sans', Helvetica, sans-serif" font-size="10" font-style="italic" fill="#C9943E">Michigan Tax Foreclosure Recovery</text>
+</svg>

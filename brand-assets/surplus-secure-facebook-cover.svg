@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 312" width="820" height="312">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=DM+Sans:wght@400;500;700&amp;display=swap');
+    </style>
+  </defs>
+  <!-- Background -->
+  <rect width="820" height="312" fill="#1B2A4A"/>
+  <!-- Subtle pattern - gold accent lines -->
+  <line x1="0" y1="0" x2="820" y2="0" stroke="#C9943E" stroke-width="4"/>
+  <line x1="0" y1="308" x2="820" y2="308" stroke="#C9943E" stroke-width="4"/>
+  <!-- Content area (offset right to account for profile pic overlap on left) -->
+  <!-- Main headline -->
+  <text x="410" y="100" text-anchor="middle" font-family="'DM Serif Display', Georgia, serif" font-size="38" fill="#FFFFFF">Surplus <tspan fill="#C9943E">Secure</tspan></text>
+  <!-- Tagline -->
+  <text x="410" y="145" text-anchor="middle" font-family="'DM Sans', Helvetica, sans-serif" font-size="14" fill="#8A98B4" letter-spacing="3">MICHIGAN TAX FORECLOSURE RECOVERY</text>
+  <!-- Divider -->
+  <line x1="320" y1="170" x2="500" y2="170" stroke="#C9943E" stroke-width="2" opacity="0.5"/>
+  <!-- Value prop -->
+  <text x="410" y="205" text-anchor="middle" font-family="'DM Serif Display', Georgia, serif" font-size="20" fill="#D4C9B0">This money is yours. We're on your side.</text>
+  <!-- CTA -->
+  <rect x="290" y="235" width="240" height="40" rx="20" fill="#C9943E"/>
+  <text x="410" y="261" text-anchor="middle" font-family="'DM Sans', Helvetica, sans-serif" font-size="14" font-weight="700" fill="#1B2A4A">Call or Text (734) 215-5540</text>
+</svg>

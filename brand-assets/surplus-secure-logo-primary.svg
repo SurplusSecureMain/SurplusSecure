@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" width="280" height="60">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;display=swap');
+    </style>
+  </defs>
+  <!-- Icon Mark -->
+  <rect x="4" y="8" width="44" height="44" rx="10" fill="#1B2A4A"/>
+  <text x="26" y="39" text-anchor="middle" font-family="'DM Serif Display', Georgia, serif" font-size="22" font-weight="700" fill="#C9943E">SS</text>
+  <!-- Wordmark -->
+  <text x="60" y="40" font-family="'DM Serif Display', Georgia, serif" font-size="28" font-weight="400" fill="#1B2A4A">Surplus</text>
+  <text x="160" y="40" font-family="'DM Serif Display', Georgia, serif" font-size="28" font-weight="400" fill="#C9943E">Secure</text>
+</svg>

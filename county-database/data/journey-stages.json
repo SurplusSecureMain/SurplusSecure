@@ -1,0 +1,118 @@
+[
+  {
+    "id": "research",
+    "order": 1,
+    "label": "Research",
+    "color": "#7F8C8D",
+    "description": "Gathering county data: treasurer contact, FGU status, auction platform, foreclosure volume",
+    "checklist": [
+      "Verify current treasurer name and contact info",
+      "Confirm FGU status (County vs State)",
+      "Identify auction platform and typical month",
+      "Estimate foreclosure volume from prior year data",
+      "Note any legal considerations (pending cases, policy changes)"
+    ]
+  },
+  {
+    "id": "foia-prep",
+    "order": 2,
+    "label": "FOIA Prep",
+    "color": "#8E44AD",
+    "description": "Preparing the FOIA request: identifying method, drafting letter, gathering required info",
+    "checklist": [
+      "Determine FOIA submission method (portal, email, form, mail)",
+      "Locate portal URL or email address",
+      "Draft FOIA request letter using template",
+      "Specify year range for records requested",
+      "Calculate estimated FOIA fees if applicable"
+    ]
+  },
+  {
+    "id": "foia-sent",
+    "order": 3,
+    "label": "FOIA Sent",
+    "color": "#2471A3",
+    "description": "FOIA request submitted — tracking response timeline",
+    "checklist": [
+      "Submit FOIA request via identified method",
+      "Record submission date",
+      "Set 5-business-day follow-up reminder",
+      "Save confirmation/receipt if provided",
+      "Log in tracking system"
+    ]
+  },
+  {
+    "id": "data-received",
+    "order": 4,
+    "label": "Data Received",
+    "color": "#17A589",
+    "description": "FOIA response received — processing surplus records",
+    "checklist": [
+      "Review response for completeness",
+      "Extract surplus amounts per parcel",
+      "Identify unclaimed surplus funds",
+      "Calculate total recoverable surplus",
+      "Build prospect list of former owners",
+      "Prioritize prospects by surplus amount"
+    ]
+  },
+  {
+    "id": "outreach",
+    "order": 5,
+    "label": "Owner Outreach",
+    "color": "#D4AC0D",
+    "description": "Contacting former property owners about their unclaimed surplus",
+    "checklist": [
+      "Skip-trace current addresses for former owners",
+      "Prepare outreach letters",
+      "Send initial contact letters",
+      "Follow up with non-respondents (2 weeks)",
+      "Second follow-up for high-value prospects (4 weeks)",
+      "Log all contact attempts"
+    ]
+  },
+  {
+    "id": "engaged",
+    "order": 6,
+    "label": "Client Engaged",
+    "color": "#E67E22",
+    "description": "Former owner has responded and agreed to representation",
+    "checklist": [
+      "Explain the surplus recovery process to client",
+      "Execute representation agreement",
+      "Collect required identification documents",
+      "Gather proof of prior ownership documentation",
+      "Confirm surplus amount with county records"
+    ]
+  },
+  {
+    "id": "claim-filed",
+    "order": 7,
+    "label": "Claim Filed",
+    "color": "#C0392B",
+    "description": "Surplus claim has been filed with the county treasurer",
+    "checklist": [
+      "Complete county-specific claim form",
+      "Attach all required documentation",
+      "Submit claim to treasurer's office",
+      "Record filing date and method",
+      "Set processing timeline reminder",
+      "Confirm receipt with county"
+    ]
+  },
+  {
+    "id": "recovered",
+    "order": 8,
+    "label": "Recovered",
+    "color": "#27AE60",
+    "description": "Surplus funds successfully recovered and distributed",
+    "checklist": [
+      "Receive surplus payment from county",
+      "Calculate service fee",
+      "Distribute net amount to client",
+      "Send final accounting to client",
+      "Request testimonial if appropriate",
+      "Log completed recovery for reporting"
+    ]
+  }
+]
