@@ -8,7 +8,13 @@
     "address": "106 5th Street, P.O. Box 158, Harrisville, MI 48740",
     "fgu": "County",
     "fguNote": "",
-    "region": "NE"
+    "region": "NE",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "alger",
@@ -19,7 +25,13 @@
     "address": "101 Court Street, Munising, MI 49862",
     "fgu": "County",
     "fguNote": "",
-    "region": "UP"
+    "region": "UP",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "allegan",
@@ -30,7 +42,13 @@
     "address": "3283 122nd Ave, Allegan, MI 49010",
     "fgu": "County",
     "fguNote": "",
-    "region": "SW"
+    "region": "SW",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "alpena",
@@ -41,7 +59,13 @@
     "address": "720 W. Chicholm St., Suite 3, Alpena, MI 49707",
     "fgu": "County",
     "fguNote": "",
-    "region": "NE"
+    "region": "NE",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "antrim",
@@ -52,7 +76,13 @@
     "address": "203 E. Cayuga St., Bellaire, MI 49615",
     "fgu": "County",
     "fguNote": "",
-    "region": "NW"
+    "region": "NW",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "arenac",
@@ -63,7 +93,13 @@
     "address": "120 N. Grove St., P.O. Box 637, Standish, MI 48658",
     "fgu": "County",
     "fguNote": "",
-    "region": "NE"
+    "region": "NE",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "baraga",
@@ -74,7 +110,13 @@
     "address": "2 South Main St., L'Anse, MI 49946",
     "fgu": "County",
     "fguNote": "",
-    "region": "UP"
+    "region": "UP",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "barry",
@@ -85,7 +127,13 @@
     "address": "220 W. State St., Hastings, MI 49058",
     "fgu": "County",
     "fguNote": "",
-    "region": "SW"
+    "region": "SW",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "bay",
@@ -96,7 +144,13 @@
     "address": "515 Center Ave., Suite 602, Bay City, MI 48708",
     "fgu": "County",
     "fguNote": "",
-    "region": "E"
+    "region": "E",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "benzie",
@@ -107,7 +161,13 @@
     "address": "448 Court Place, Beulah, MI 49617",
     "fgu": "County",
     "fguNote": "",
-    "region": "NW"
+    "region": "NW",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "berrien",
@@ -118,7 +178,13 @@
     "address": "701 Main Street, St. Joseph, MI 49085",
     "fgu": "County",
     "fguNote": "",
-    "region": "SW"
+    "region": "SW",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "branch",
@@ -129,7 +195,13 @@
     "address": "430 W. Allegan Street, Lansing, MI 48922",
     "fgu": "State",
     "fguNote": "State is FGU for all current foreclosure years",
-    "region": "S"
+    "region": "S",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "calhoun",
@@ -140,7 +212,13 @@
     "address": "315 W. Green St., Marshall, MI 49068",
     "fgu": "County",
     "fguNote": "",
-    "region": "S"
+    "region": "S",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "cass",
@@ -151,7 +229,13 @@
     "address": "120 N. Broadway St., Cassopolis, MI 49031",
     "fgu": "County",
     "fguNote": "",
-    "region": "SW"
+    "region": "SW",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "charlevoix",
@@ -162,7 +246,13 @@
     "address": "13513 Division St., Charlevoix, MI 49720",
     "fgu": "County",
     "fguNote": "",
-    "region": "NW"
+    "region": "NW",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "cheboygan",
@@ -173,7 +263,13 @@
     "address": "870 S. Main St., P.O. Box 70, Cheboygan, MI 49721",
     "fgu": "County",
     "fguNote": "",
-    "region": "N"
+    "region": "N",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "chippewa",
@@ -184,7 +280,13 @@
     "address": "319 Court St., Sault Ste. Marie, MI 49783",
     "fgu": "County",
     "fguNote": "",
-    "region": "UP"
+    "region": "UP",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "clare",
@@ -195,7 +297,13 @@
     "address": "225 W. Main, P.O. Box 564, Harrison, MI 48625",
     "fgu": "County",
     "fguNote": "",
-    "region": "C"
+    "region": "C",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "clinton",
@@ -206,7 +314,13 @@
     "address": "430 W. Allegan Street, Lansing, MI 48922",
     "fgu": "State",
     "fguNote": "State is FGU for all current foreclosure years",
-    "region": "C"
+    "region": "C",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "crawford",
@@ -217,7 +331,13 @@
     "address": "200 W. Michigan Ave., Grayling, MI 49738",
     "fgu": "County",
     "fguNote": "",
-    "region": "N"
+    "region": "N",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "delta",
@@ -228,7 +348,13 @@
     "address": "310 Ludington St., Room 171, Escanaba, MI 49829",
     "fgu": "County",
     "fguNote": "",
-    "region": "UP"
+    "region": "UP",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "dickinson",
@@ -239,7 +365,13 @@
     "address": "705 S. Stephenson, P.O. Box 609, Iron Mountain, MI 49801",
     "fgu": "County",
     "fguNote": "",
-    "region": "UP"
+    "region": "UP",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "eaton",
@@ -250,7 +382,13 @@
     "address": "1045 Independence Blvd, Charlotte, MI 48813",
     "fgu": "County",
     "fguNote": "",
-    "region": "C"
+    "region": "C",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "emmet",
@@ -261,7 +399,13 @@
     "address": "200 Division St., Ste 170, Petoskey, MI 49770",
     "fgu": "County",
     "fguNote": "",
-    "region": "N"
+    "region": "N",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "genesee",
@@ -272,7 +416,13 @@
     "address": "1101 Beach St., Flint, MI 48502",
     "fgu": "County",
     "fguNote": "",
-    "region": "SE"
+    "region": "SE",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "gladwin",
@@ -283,7 +433,13 @@
     "address": "401 W. Cedar, Gladwin, MI 48624",
     "fgu": "County",
     "fguNote": "",
-    "region": "NE"
+    "region": "NE",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "gogebic",
@@ -294,7 +450,13 @@
     "address": "200 N. Moore St., Bessemer, MI 49911",
     "fgu": "County",
     "fguNote": "",
-    "region": "UP"
+    "region": "UP",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "grandtraverse",
@@ -305,7 +467,13 @@
     "address": "400 Boardman Ave, Ste 104, Traverse City, MI 49684",
     "fgu": "County",
     "fguNote": "",
-    "region": "NW"
+    "region": "NW",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "gratiot",
@@ -316,7 +484,13 @@
     "address": "214 E. Center St., Ithaca, MI 48847",
     "fgu": "County",
     "fguNote": "",
-    "region": "C"
+    "region": "C",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "hillsdale",
@@ -327,7 +501,13 @@
     "address": "33 McCollum St, Hillsdale, MI 49242",
     "fgu": "County",
     "fguNote": "",
-    "region": "S"
+    "region": "S",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "houghton",
@@ -338,7 +518,13 @@
     "address": "401 E. Houghton Ave., Houghton, MI 49931",
     "fgu": "County",
     "fguNote": "",
-    "region": "UP"
+    "region": "UP",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "huron",
@@ -349,7 +535,13 @@
     "address": "250 East Huron Ave, Room 204, Bad Axe, MI 48413",
     "fgu": "County",
     "fguNote": "",
-    "region": "E"
+    "region": "E",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "ingham",
@@ -360,7 +552,13 @@
     "address": "Jefferson St., 2nd Floor, Mason, MI 48854",
     "fgu": "County",
     "fguNote": "",
-    "region": "C"
+    "region": "C",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "ionia",
@@ -371,7 +569,13 @@
     "address": "100 Main St., Ionia, MI 48846",
     "fgu": "County",
     "fguNote": "",
-    "region": "C"
+    "region": "C",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "iosco",
@@ -382,7 +586,13 @@
     "address": "430 W. Allegan Street, Lansing, MI 48922",
     "fgu": "State",
     "fguNote": "State is FGU for all current foreclosure years",
-    "region": "NE"
+    "region": "NE",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "iron",
@@ -393,7 +603,13 @@
     "address": "2 South 6th St., Ste. 12, Crystal Falls, MI 49920",
     "fgu": "County",
     "fguNote": "",
-    "region": "UP"
+    "region": "UP",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "isabella",
@@ -404,7 +620,13 @@
     "address": "200 N. Main Street, Mt. Pleasant, MI 48858",
     "fgu": "County",
     "fguNote": "Pung v. Isabella County \u2014 SCOTUS pending",
-    "region": "C"
+    "region": "C",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "jackson",
@@ -415,7 +637,13 @@
     "address": "120 W. Michigan Ave., Jackson, MI 49201",
     "fgu": "County",
     "fguNote": "",
-    "region": "S"
+    "region": "S",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "kalamazoo",
@@ -426,7 +654,13 @@
     "address": "201 W. Kalamazoo, Rm1, Kalamazoo, MI 49007",
     "fgu": "County",
     "fguNote": "",
-    "region": "SW"
+    "region": "SW",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "kalkaska",
@@ -437,18 +671,30 @@
     "address": "605 N. Birch St., Kalkaska, MI 49646",
     "fgu": "County",
     "fguNote": "",
-    "region": "NW"
+    "region": "NW",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "kent",
     "name": "Kent",
     "fips": "26081",
-    "treasurer": "Peter MacGregor",
-    "phone": "616-632-7500",
+    "treasurer": "Peter F. MacGregor",
+    "phone": "616-632-7490",
     "address": "300 Monroe N.W., P.O. Box Y, Grand Rapids, MI 49503",
     "fgu": "County",
     "fguNote": "",
-    "region": "W"
+    "region": "W",
+    "foreclosureYear": "2023",
+    "parcels": 13,
+    "totalDueCounty": 96421.18,
+    "totalPaidAtAuction": 556201.73,
+    "surplusClaimed": 186287.98,
+    "netSurplusRetained": 274074.88
   },
   {
     "id": "keweenaw",
@@ -459,7 +705,13 @@
     "address": "5095 4th St., Eagle River, MI 49950",
     "fgu": "County",
     "fguNote": "State was FGU 2018-2020 only; county is current FGU",
-    "region": "UP"
+    "region": "UP",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "lake",
@@ -470,7 +722,13 @@
     "address": "800 10th St., Ste. 210, Baldwin, MI 49304",
     "fgu": "County",
     "fguNote": "",
-    "region": "W"
+    "region": "W",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "lapeer",
@@ -481,7 +739,13 @@
     "address": "255 Clay, Ste. 303, Lapeer, MI 48446",
     "fgu": "County",
     "fguNote": "",
-    "region": "SE"
+    "region": "SE",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "leelanau",
@@ -492,7 +756,13 @@
     "address": "8527 E. Government Ctr, Ste 104, Suttons Bay, MI 49682",
     "fgu": "County",
     "fguNote": "",
-    "region": "NW"
+    "region": "NW",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "lenawee",
@@ -503,7 +773,13 @@
     "address": "301 N. Main, Adrian, MI 49221",
     "fgu": "County",
     "fguNote": "",
-    "region": "SE"
+    "region": "SE",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "livingston",
@@ -514,7 +790,13 @@
     "address": "430 W. Allegan Street, Lansing, MI 48922",
     "fgu": "State",
     "fguNote": "State is FGU for all current foreclosure years",
-    "region": "SE"
+    "region": "SE",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "luce",
@@ -525,7 +807,13 @@
     "address": "407 W. Harrie St., Newberry, MI 49868",
     "fgu": "County",
     "fguNote": "State was FGU 2018-2025; verify current status",
-    "region": "UP"
+    "region": "UP",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "mackinac",
@@ -536,7 +824,13 @@
     "address": "100 Marley St., St. Ignace, MI 49781",
     "fgu": "County",
     "fguNote": "",
-    "region": "UP"
+    "region": "UP",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "macomb",
@@ -547,7 +841,13 @@
     "address": "1 S. Main, 2nd Floor, Mt. Clemens, MI 48043",
     "fgu": "County",
     "fguNote": "",
-    "region": "SE"
+    "region": "SE",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "manistee",
@@ -558,7 +858,13 @@
     "address": "415 Third Street, Manistee, MI 49660",
     "fgu": "County",
     "fguNote": "",
-    "region": "NW"
+    "region": "NW",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "marquette",
@@ -569,7 +875,13 @@
     "address": "234 W. Baraga Ave., Marquette, MI 49855",
     "fgu": "County",
     "fguNote": "",
-    "region": "UP"
+    "region": "UP",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "mason",
@@ -580,7 +892,13 @@
     "address": "304 E. Ludington Ave, Suite 104, Ludington, MI 49431",
     "fgu": "County",
     "fguNote": "",
-    "region": "W"
+    "region": "W",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "mecosta",
@@ -591,7 +909,13 @@
     "address": "430 W. Allegan Street, Lansing, MI 48922",
     "fgu": "State",
     "fguNote": "State is FGU for all current foreclosure years",
-    "region": "C"
+    "region": "C",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "menominee",
@@ -602,7 +926,13 @@
     "address": "839 10th Ave, Menominee, MI 49858",
     "fgu": "County",
     "fguNote": "",
-    "region": "UP"
+    "region": "UP",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "midland",
@@ -613,7 +943,13 @@
     "address": "220 W. Ellsworth Street, Midland, MI 48640",
     "fgu": "County",
     "fguNote": "",
-    "region": "E"
+    "region": "E",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "missaukee",
@@ -624,7 +960,13 @@
     "address": "111 South Canal, P.O. Box 800, Lake City, MI 49651",
     "fgu": "County",
     "fguNote": "",
-    "region": "NW"
+    "region": "NW",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "monroe",
@@ -635,7 +977,13 @@
     "address": "51 South Macomb Street, Monroe, MI 48161",
     "fgu": "County",
     "fguNote": "",
-    "region": "SE"
+    "region": "SE",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "montcalm",
@@ -646,7 +994,13 @@
     "address": "211 W. Main Street, Stanton, MI 48888",
     "fgu": "County",
     "fguNote": "",
-    "region": "C"
+    "region": "C",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "montmorency",
@@ -657,7 +1011,13 @@
     "address": "12265 M-32, Atlanta, MI 49709",
     "fgu": "County",
     "fguNote": "",
-    "region": "NE"
+    "region": "NE",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "muskegon",
@@ -668,7 +1028,13 @@
     "address": "173 E Apple Ave., Suite 104, Muskegon, MI 49442",
     "fgu": "County",
     "fguNote": "",
-    "region": "W"
+    "region": "W",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "newaygo",
@@ -679,7 +1045,13 @@
     "address": "1087 Newell St., P.O. Box 885, White Cloud, MI 49349",
     "fgu": "County",
     "fguNote": "",
-    "region": "W"
+    "region": "W",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "oakland",
@@ -690,7 +1062,13 @@
     "address": "1200 North Telegraph Rd, Pontiac, MI 48341",
     "fgu": "County",
     "fguNote": "Settled all retroactive Rafaeli claims",
-    "region": "SE"
+    "region": "SE",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "oceana",
@@ -701,7 +1079,13 @@
     "address": "100 S. State Street, Suite M-2, Hart, MI 49420",
     "fgu": "County",
     "fguNote": "",
-    "region": "W"
+    "region": "W",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "ogemaw",
@@ -712,7 +1096,13 @@
     "address": "806 West Houghton Ave, West Branch, MI 48661",
     "fgu": "County",
     "fguNote": "",
-    "region": "NE"
+    "region": "NE",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "ontonagon",
@@ -723,7 +1113,13 @@
     "address": "725 Greenland Road, Ontonagon, MI 49953",
     "fgu": "County",
     "fguNote": "",
-    "region": "UP"
+    "region": "UP",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "osceola",
@@ -734,7 +1130,13 @@
     "address": "301 W. Upton, Reed City, MI 49677",
     "fgu": "County",
     "fguNote": "",
-    "region": "C"
+    "region": "C",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "oscoda",
@@ -745,7 +1147,13 @@
     "address": "311 S. Morenci Ave., P.O. Box 399, Mio, MI 48647",
     "fgu": "County",
     "fguNote": "",
-    "region": "NE"
+    "region": "NE",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "otsego",
@@ -756,7 +1164,13 @@
     "address": "225 W. Main Street, Room 107, Gaylord, MI 49735",
     "fgu": "County",
     "fguNote": "",
-    "region": "N"
+    "region": "N",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "ottawa",
@@ -767,7 +1181,13 @@
     "address": "12220 Fillmore St, Room 155, West Olive, MI 49460",
     "fgu": "County",
     "fguNote": "",
-    "region": "W"
+    "region": "W",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "presqueisle",
@@ -778,7 +1198,13 @@
     "address": "P.O. Box 110, Rogers City, MI 49779",
     "fgu": "County",
     "fguNote": "",
-    "region": "NE"
+    "region": "NE",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "roscommon",
@@ -789,7 +1215,13 @@
     "address": "500 Lake Street, Roscommon, MI 48653",
     "fgu": "County",
     "fguNote": "",
-    "region": "N"
+    "region": "N",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "saginaw",
@@ -800,7 +1232,13 @@
     "address": "111 S. Michigan Ave., Room 107, Saginaw, MI 48602",
     "fgu": "County",
     "fguNote": "",
-    "region": "E"
+    "region": "E",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "stclair",
@@ -811,7 +1249,13 @@
     "address": "200 Grand River, Suite 101, Port Huron, MI 48060",
     "fgu": "County",
     "fguNote": "",
-    "region": "SE"
+    "region": "SE",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "stjoseph",
@@ -822,7 +1266,13 @@
     "address": "125 W. Main, Centreville, MI 49032",
     "fgu": "County",
     "fguNote": "",
-    "region": "SW"
+    "region": "SW",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "sanilac",
@@ -833,7 +1283,13 @@
     "address": "60 W. Sanilac, Room 204, Sandusky, MI 48471",
     "fgu": "County",
     "fguNote": "",
-    "region": "E"
+    "region": "E",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "schoolcraft",
@@ -844,7 +1300,13 @@
     "address": "300 Walnut St., Room 169, Manistique, MI 49854",
     "fgu": "County",
     "fguNote": "",
-    "region": "UP"
+    "region": "UP",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "shiawassee",
@@ -855,7 +1317,13 @@
     "address": "208 North Shiawassee St., 2nd Floor, Corunna, MI 48817",
     "fgu": "County",
     "fguNote": "State was FGU 2018-2022 only; county is current FGU",
-    "region": "C"
+    "region": "C",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "tuscola",
@@ -866,7 +1334,13 @@
     "address": "125 W. Lincoln St., Caro, MI 48723",
     "fgu": "County",
     "fguNote": "",
-    "region": "E"
+    "region": "E",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "vanburen",
@@ -877,7 +1351,13 @@
     "address": "219 E. Paw Paw St., Suite 101, Paw Paw, MI 49079",
     "fgu": "County",
     "fguNote": "",
-    "region": "SW"
+    "region": "SW",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "washtenaw",
@@ -888,7 +1368,13 @@
     "address": "200 N. Main St., Suite 200, Ann Arbor, MI 48107",
     "fgu": "County",
     "fguNote": "",
-    "region": "SE"
+    "region": "SE",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "wayne",
@@ -899,7 +1385,13 @@
     "address": "400 Monroe Street, 5th Floor, Detroit, MI 48226",
     "fgu": "County",
     "fguNote": "Highest foreclosure volume statewide",
-    "region": "SE"
+    "region": "SE",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   },
   {
     "id": "wexford",
@@ -910,6 +1402,12 @@
     "address": "437 E. Division St., 2nd Floor, Cadillac, MI 49601",
     "fgu": "County",
     "fguNote": "",
-    "region": "NW"
+    "region": "NW",
+    "foreclosureYear": "",
+    "parcels": null,
+    "totalDueCounty": null,
+    "totalPaidAtAuction": null,
+    "surplusClaimed": null,
+    "netSurplusRetained": null
   }
 ]

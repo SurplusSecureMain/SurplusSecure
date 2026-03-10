@@ -466,11 +466,16 @@ function renderCountyStats() {
   const high = counties.filter(c => c.tier === 'High').length;
   const foiaSubmitted = counties.filter(c => c.foiaStatus === 'Submitted' || c.foiaStatus === 'Received').length;
   const inPipeline = counties.filter(c => c.pipelineStage && c.pipelineStage !== 'None').length;
+  const withData = counties.filter(c => c.parcels);
+  const totalRetained = withData.reduce((s, c) => s + (c.netSurplusRetained||0), 0);
+  const totalClaimed = withData.reduce((s, c) => s + (c.surplusClaimed||0), 0);
   document.getElementById('county-stats').innerHTML =
     '<div class="stat-card"><div class="num">' + total + '</div><div class="lbl">Total Counties</div></div>' +
     '<div class="stat-card"><div class="num">' + high + '</div><div class="lbl">High Priority</div></div>' +
     '<div class="stat-card"><div class="num">' + foiaSubmitted + '</div><div class="lbl">FOIA Active</div></div>' +
-    '<div class="stat-card"><div class="num">' + inPipeline + '</div><div class="lbl">In Pipeline</div></div>';
+    '<div class="stat-card"><div class="num">' + inPipeline + '</div><div class="lbl">In Pipeline</div></div>' +
+    (withData.length > 0 ? '<div class="stat-card"><div class="num" style="color:var(--red)">$' + Math.round(totalRetained).toLocaleString() + '</div><div class="lbl">Surplus Retained (' + withData.length + ' counties)</div></div>' +
+    '<div class="stat-card"><div class="num" style="color:var(--green)">$' + Math.round(totalClaimed).toLocaleString() + '</div><div class="lbl">Surplus Claimed</div></div>' : '');
 }
 
 function renderCounties() {
@@ -529,6 +534,13 @@ function filterCounties() {
         '<div class="field"><label>Address</label><div style="padding:.65rem 0;font-size:.85rem;color:var(--text)">' + (c.address||'—') + '</div></div>' +
       '</div>' +
       '<div class="notes-area"><div class="field"><label>Notes</label><textarea rows="2" onchange="updateCounty(\\'' + c.id + '\\',\\'notes\\',this.value)" placeholder="Add operational notes...">' + (c.notes||'') + '</textarea></div></div>' +
+      (c.parcels ? '<div style="margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--border)"><div style="font-size:.75rem;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.8px;margin-bottom:.5rem">2023 Foreclosure Sale Data</div><div class="detail-grid" style="grid-template-columns:repeat(5,1fr)">' +
+        '<div class="field"><label># Parcels</label><div style="padding:.4rem 0;color:var(--text-bright);font-weight:600">' + c.parcels + '</div></div>' +
+        '<div class="field"><label>Total Due County</label><div style="padding:.4rem 0;color:var(--text-bright)">$' + (c.totalDueCounty||0).toLocaleString() + '</div></div>' +
+        '<div class="field"><label>Paid at Auction</label><div style="padding:.4rem 0;color:var(--text-bright)">$' + (c.totalPaidAtAuction||0).toLocaleString() + '</div></div>' +
+        '<div class="field"><label>Surplus Claimed</label><div style="padding:.4rem 0;color:var(--green)">$' + (c.surplusClaimed||0).toLocaleString() + '</div></div>' +
+        '<div class="field"><label>Net Retained by County</label><div style="padding:.4rem 0;color:var(--red)">$' + (c.netSurplusRetained||0).toLocaleString() + '</div></div>' +
+      '</div></div>' : '') +
     '</div>';
   }).join('');
 }
@@ -664,7 +676,7 @@ const COUNTY_SEED = [
   {id:"jackson",name:"Jackson",fips:"26075",treasurer:"Karen Coffman",phone:"517-788-4426",address:"120 W. Michigan Ave., Jackson, MI 49201",fgu:"County",fguNote:"",region:"S",tier:"",foiaStatus:"",foiaMethod:"",pipelineStage:"None",notes:""},
   {id:"kalamazoo",name:"Kalamazoo",fips:"26077",treasurer:"Mary Balkema",phone:"269-384-8124",address:"201 W. Kalamazoo Ave., Kalamazoo, MI 49007",fgu:"County",fguNote:"",region:"SW",tier:"",foiaStatus:"",foiaMethod:"",pipelineStage:"None",notes:""},
   {id:"kalkaska",name:"Kalkaska",fips:"26079",treasurer:"Christal Klingbeil",phone:"231-258-3310",address:"605 N. Birch St., Kalkaska, MI 49646",fgu:"County",fguNote:"",region:"NW",tier:"",foiaStatus:"",foiaMethod:"",pipelineStage:"None",notes:""},
-  {id:"kent",name:"Kent",fips:"26081",treasurer:"Ken Parrish",phone:"616-632-7500",address:"300 Monroe Ave. NW, Grand Rapids, MI 49503",fgu:"County",fguNote:"High volume county",region:"W",tier:"",foiaStatus:"",foiaMethod:"",pipelineStage:"None",notes:""},
+  {id:"kent",name:"Kent",fips:"26081",treasurer:"Peter F. MacGregor",phone:"616-632-7490",address:"300 Monroe Ave. NW, Grand Rapids, MI 49503",fgu:"County",fguNote:"High volume county",region:"W",tier:"",foiaStatus:"",foiaMethod:"",pipelineStage:"None",notes:"",foreclosureYear:"2023",parcels:13,totalDueCounty:96421.18,totalPaidAtAuction:556201.73,surplusClaimed:186287.98,netSurplusRetained:274074.88},
   {id:"keweenaw",name:"Keweenaw",fips:"26083",treasurer:"Julie A. Jokinen",phone:"906-337-2229",address:"5095 4th St., Eagle River, MI 49950",fgu:"County",fguNote:"",region:"UP",tier:"",foiaStatus:"",foiaMethod:"",pipelineStage:"None",notes:""},
   {id:"lake",name:"Lake",fips:"26085",treasurer:"Judy Nichols",phone:"231-745-4614",address:"800 10th St., Suite 200, Baldwin, MI 49304",fgu:"County",fguNote:"",region:"W",tier:"",foiaStatus:"",foiaMethod:"",pipelineStage:"None",notes:""},
   {id:"lapeer",name:"Lapeer",fips:"26087",treasurer:"Dana M. Miller",phone:"810-667-0229",address:"255 Clay St., Lapeer, MI 48446",fgu:"County",fguNote:"",region:"E",tier:"",foiaStatus:"",foiaMethod:"",pipelineStage:"None",notes:""},
