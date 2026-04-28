@@ -7,13 +7,13 @@
 <title>Surplus Secure | Michigan Tax Foreclosure Surplus Fund Recovery — Ann Arbor Attorney</title>
 <meta name="description" content="Surplus Secure helps Michigan homeowners recover surplus funds after tax foreclosure. Led by attorney Kelli Meeks with 40 years of experience. No upfront cost — we only get paid when you get paid. Call or text (734) 215-5540 for a free consultation.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-<meta name="admin-api" content=""><!-- Set to https://admin.surplus-secure.com after deploy -->
-<link rel="canonical" href="https://surplus-secure.com/">
+<meta name="admin-api" content=""><!-- Set to https://admin.surplussecure.com after deploy -->
+<link rel="canonical" href="https://surplussecure.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Surplus Secure">
 <meta property="og:title" content="Surplus Secure — Recover Your Money After Tax Foreclosure in Michigan">
 <meta property="og:description" content="Lost your home to tax foreclosure? You may be owed surplus money from the sale. Surplus Secure handles the legal process — no upfront cost. Call or text (734) 215-5540.">
-<meta property="og:url" content="https://surplus-secure.com/">
+<meta property="og:url" content="https://surplussecure.com/">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Surplus Secure — Michigan Tax Foreclosure Surplus Recovery">
@@ -23,11 +23,11 @@
   {
     "@context": "https://schema.org",
     "@type": "LegalService",
-    "@id": "https://surplus-secure.com/#legal-service",
+    "@id": "https://surplussecure.com/#legal-service",
     "name": "Surplus Secure",
     "alternateName": "Surplus Secure LLC",
     "description": "Surplus Secure is a Michigan legal service that helps former homeowners recover surplus funds after tax foreclosure sales. Led by attorney Kelli Meeks with 40 years of real estate law experience.",
-    "url": "https://surplus-secure.com",
+    "url": "https://surplussecure.com",
     "telephone": "+1-734-215-5540",
     "email": "surplussecure@gmail.com",
     "priceRange": "No upfront cost — contingency fee",
@@ -43,8 +43,8 @@
     "areaServed": { "@type": "State", "name": "Michigan" },
     "serviceType": ["Tax Foreclosure Surplus Recovery", "Surplus Fund Claims", "Real Estate Law"],
     "knowsAbout": ["Michigan tax foreclosure surplus funds", "Property tax foreclosure proceedings", "Surplus proceeds claims", "Michigan General Property Tax Act"],
-    "founder": { "@id": "https://surplus-secure.com/#kelli-meeks" },
-    "employee": { "@id": "https://surplus-secure.com/#kelli-meeks" },
+    "founder": { "@id": "https://surplussecure.com/#kelli-meeks" },
+    "employee": { "@id": "https://surplussecure.com/#kelli-meeks" },
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+1-734-215-5540",
@@ -57,12 +57,12 @@
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "@id": "https://surplus-secure.com/#kelli-meeks",
+    "@id": "https://surplussecure.com/#kelli-meeks",
     "name": "Kelli Meeks",
     "jobTitle": "Attorney & Owner",
-    "worksFor": { "@id": "https://surplus-secure.com/#legal-service" },
+    "worksFor": { "@id": "https://surplussecure.com/#legal-service" },
     "description": "Licensed Michigan attorney with 40 years of real estate law experience specializing in tax foreclosure surplus fund recovery.",
-    "image": "https://surplus-secure.com/images/kelli-meeks-attorney.webp"
+    "image": "https://surplussecure.com/images/kelli-meeks-attorney.webp"
   },
   {
     "@context": "https://schema.org",
@@ -76,8 +76,8 @@
       { "@type": "Question", "name": "Do I need a lawyer to claim surplus funds in Michigan?", "acceptedAnswer": { "@type": "Answer", "text": "While not legally required, the surplus recovery process involves proper legal filings, court approvals, and strict deadline compliance. A single mistake can result in your claim being denied." } }
     ]
   },
-  { "@context": "https://schema.org", "@type": "Review", "author": { "@type": "Person", "name": "Dennis A." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "itemReviewed": { "@id": "https://surplus-secure.com/#legal-service" }, "reviewBody": "Kelli was my guardian angel. She helped me understand the process, protected my equity, and kept me informed every step of the way." },
-  { "@context": "https://schema.org", "@type": "Review", "author": { "@type": "Person", "name": "Janice S." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "itemReviewed": { "@id": "https://surplus-secure.com/#legal-service" }, "reviewBody": "Kelli is an extraordinary lawyer. Her tenacious drive for justice helped me secure a significant amount of money after a long foreclosure nightmare." }
+  { "@context": "https://schema.org", "@type": "Review", "author": { "@type": "Person", "name": "Dennis A." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "itemReviewed": { "@id": "https://surplussecure.com/#legal-service" }, "reviewBody": "Kelli was my guardian angel. She helped me understand the process, protected my equity, and kept me informed every step of the way." },
+  { "@context": "https://schema.org", "@type": "Review", "author": { "@type": "Person", "name": "Janice S." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "itemReviewed": { "@id": "https://surplussecure.com/#legal-service" }, "reviewBody": "Kelli is an extraordinary lawyer. Her tenacious drive for justice helped me secure a significant amount of money after a long foreclosure nightmare." }
 ]
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -325,6 +325,32 @@
     position: relative;
     overflow: hidden;
     background: var(--navy-deep);
+  }
+  .hero-video-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-video-wrap video,
+  .hero-video-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .hero-video-wrap video { display: none; }
+  .hero-video-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(15,26,46,0.88) 0%,
+      rgba(15,26,46,0.72) 40%,
+      rgba(15,26,46,0.55) 100%
+    );
+    z-index: 1;
   }
   .hero::before {
     content: '';
@@ -1031,6 +1057,7 @@
     .process-steps { grid-template-columns: repeat(4, 1fr); }
     section { padding: 6rem 2rem; }
     .hero-inner { padding: 10rem 2rem 7rem; }
+    .hero-video-wrap video { display: block; }
     .stats-bar { margin-top: -4rem; }
   }
 
@@ -1086,6 +1113,28 @@
     .nav-text-cta { background: rgba(200,164,86,0.08); color: #D4C9B0 !important; border-color: rgba(200,164,86,0.2); }
     .nav-text-cta:hover { background: rgba(200,164,86,0.15); border-color: var(--gold); }
     .mobile-menu-btn span { background: #D4C9B0; }
+    /* Fix dark-on-dark: elements using var(--navy) for text */
+    .section-label { color: #C8A456 !important; }
+    .form-group label { color: #D4C9B0; }
+    .stat-note { color: #D4C9B0 !important; }
+    .stat-label { color: #8898A8; }
+    .about-card h3 { color: #D4C9B0; }
+    .about-card p, .why-card p, .testimonial-card p { color: #C0CAD4; }
+    .process-step-num { color: #C8A456; }
+    .process-step h4 { color: #D4C9B0; }
+    .process-step p { color: #C0CAD4; }
+    .faq-answer { color: #C0CAD4; }
+    .btn-outline { color: #D4C9B0 !important; border-color: rgba(200,164,86,0.3); }
+    .btn-outline:hover { color: #0F1E2E !important; }
+    /* Exit popup dark mode */
+    .exit-popup { background: #1A2A3C; }
+    .exit-popup h3 { color: #D4C9B0 !important; }
+    .exit-popup p { color: #C0CAD4 !important; }
+    .exit-popup-note { color: #8898A8 !important; }
+    .exit-popup-close { color: #8898A8; }
+    .exit-popup-close:hover { color: #D4C9B0; }
+    .exit-popup .btn-outline { color: #D4C9B0 !important; }
+    .exit-overlay { background: rgba(0,0,0,0.6); }
   }
 
   /* ───── REDUCED MOTION ───── */
@@ -1219,6 +1268,8 @@
   @media (prefers-color-scheme: dark) {
     .exit-popup { background: #1A2A3C; }
     .exit-popup h3 { color: #D4C9B0; }
+    .exit-popup p { color: #C0CAD4; }
+    .exit-popup-note { color: #8898A8; }
     .exit-popup-close { color: #6b7a96; }
     .exit-popup-close:hover { color: #D4C9B0; }
     .exit-popup .btn-outline { color: #D4C9B0; border-color: rgba(200,164,86,0.3); }
@@ -1269,6 +1320,10 @@
 
 <main id="main">
 <header class="hero">
+  <div class="hero-video-wrap" id="heroVideoWrap">
+    <!-- Poster loads instantly (46KB). Video injected after page load on desktop only. -->
+    <img src="hero-poster.webp" alt="" width="1920" height="1080" fetchpriority="high">
+  </div>
   <div class="hero-grid-pattern"></div>
   <div class="hero-inner">
     <div class="hero-badge">
@@ -1293,15 +1348,54 @@
   <div class="stats-bar-inner">
     <div class="stat-item">
       <div class="stat-number"><span>$</span>39.8M</div>
-      <div class="stat-label">Surplus Funds Collected in 2023</div>
+      <div class="stat-label">Surplus Funds Held by Michigan Counties in 2023</div>
     </div>
     <div class="stat-item">
       <div class="stat-number"><span>$</span>3.7M</div>
       <div class="stat-label">Actually Claimed & Paid Out</div>
     </div>
-    <div class="stat-note" style="font-family:'DM Serif Display',Georgia,serif;font-size:1.15rem;color:var(--navy);font-style:normal;padding:0 1.5rem 1.25rem;">That's $36 million left on the table by people who didn't know it was theirs.</div>
+    <div class="stat-note" style="font-family:'DM Serif Display',Georgia,serif;font-size:1.15rem;color:var(--text-dark);font-style:normal;padding:0 1.5rem 1.25rem;">That's $36 million left on the table by people who didn't know it was theirs.</div>
   </div>
 </div>
+
+<!-- CONTACT FORM -->
+
+<section class="contact" id="contact" style="padding-bottom:2rem;">
+  <div class="section-inner" style="max-width:540px;">
+    <div style="text-align:center;margin-bottom:1.5rem;">
+      <div class="section-label reveal" style="justify-content:center;">Get In Touch</div>
+      <h2 class="section-title reveal" style="margin-left:auto;margin-right:auto;">We're here when you're ready</h2>
+      <p style="font-size:0.95rem;color:var(--text-muted);max-width:400px;margin:0 auto;line-height:1.7;">No pressure, no obligation. Just tell us how to reach you and Kelli will be in touch.</p>
+    </div>
+    <div class="contact-form reveal">
+      <form id="ssContactForm" novalidate>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" required placeholder="Your first name" autocomplete="given-name">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" autocomplete="tel">
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email">
+        </div>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin:-0.25rem 0 1rem;font-style:italic;">Phone or email — whichever you prefer. We just need a way to reach you.</p>
+        <!-- Honeypot -->
+        <div style="position:absolute;left:-9999px;" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
+        <button type="submit" class="form-submit" id="ssSubmitBtn">Get in Touch</button>
+        <div id="ssFormMsg" style="display:none;margin-top:0.75rem;padding:0.75rem 1rem;border-radius:8px;font-size:0.9rem;line-height:1.5;"></div>
+      </form>
+      <div style="text-align:center;margin-top:1.25rem;padding-top:1rem;border-top:1px solid rgba(27,42,65,0.08);">
+        <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:0.5rem;">Or reach Kelli directly</p>
+        <a href="tel:7342155540" style="color:var(--text-dark);font-weight:600;text-decoration:none;font-size:1rem;">📞 (734) 215-5540</a>
+        <span style="color:var(--text-muted);margin:0 0.5rem;">·</span>
+        <a href="sms:7342155540?body=Hi%2C%20I%27d%20like%20to%20learn%20about%20recovering%20my%20surplus%20funds." style="color:var(--text-dark);font-weight:600;text-decoration:none;font-size:1rem;">💬 Text Us</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ABOUT -->
 
@@ -1520,26 +1614,9 @@
   <div class="section-inner">
     <h2 class="reveal">This isn't the end of your story.<br>Let's write the next chapter.</h2>
     <p class="reveal">Call or text today for a free information session. No cost. No pressure. No risk.</p>
-    <a href="tel:7342155540" class="btn-primary reveal">📞 (734) 215-5540 — Call or Text</a>
-  </div>
-</section>
-
-<!-- CONTACT -->
-
-<section class="contact" id="contact">
-  <div class="section-inner">
-    <div style="text-align:center;">
-      <div class="section-label reveal" style="justify-content:center;">Get In Touch</div>
-      <h2 class="section-title reveal" style="margin-left:auto;margin-right:auto;">We're here to help</h2>
-    </div>
-    <div style="max-width:420px;margin:0 auto;">
-      <div class="contact-form reveal" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1.5rem;">
-        <div style="font-family:'DM Serif Display',Georgia,serif;font-size:1.3rem;color:var(--navy);line-height:1.4;">Ready to find out if you're owed money?</div>
-        <p style="font-size:0.95rem;color:var(--text-muted);max-width:340px;line-height:1.7;">Call or text us — we'll look into your case for free. Most people hear back within a few hours.</p>
-        <a href="tel:7342155540" class="btn-primary" style="width:100%;justify-content:center;font-size:1.05rem;">📞 Call (734) 215-5540</a>
-        <a href="sms:7342155540?body=Hi%2C%20I%27d%20like%20to%20learn%20about%20recovering%20my%20surplus%20funds." class="btn-outline" style="width:100%;justify-content:center;font-size:1.05rem;border-color:var(--gold-light);color:var(--navy);">💬 Text Us Instead</a>
-        <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;">Free consultation · No upfront cost · Contingency fee only</p>
-      </div>
+    <div class="reveal" style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;">
+      <a href="tel:7342155540" class="btn-primary">📞 (734) 215-5540 — Call or Text</a>
+      <a href="#contact" class="btn-outline" style="border-color:rgba(255,255,255,0.3);color:#fff;">📝 Send a Message</a>
     </div>
   </div>
 </section>
@@ -1722,6 +1799,84 @@
       const k=el.dataset.editable;if(c[k])el.textContent=c[k];
     });
   }catch(e){/* defaults are fine */}})();
+  </script>
+<script>
+  // Contact form → ss-form Worker
+  (function(){
+    var form = document.getElementById('ssContactForm');
+    if (!form) return;
+    var btn = document.getElementById('ssSubmitBtn');
+    var msg = document.getElementById('ssFormMsg');
+    var WORKER_URL = 'https://ss-form.ebony-iris.workers.dev';
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name = form.firstName.value.trim();
+      var phone = form.phone.value.trim();
+      var email = form.email.value.trim();
+
+      if (!name) { showMsg('Please enter your first name.', true); return; }
+      if (!phone && !email) { showMsg('Please provide a phone number or email so we can reach you.', true); return; }
+
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      var fd = new FormData();
+      fd.append('firstName', name);
+      fd.append('phone', phone);
+      fd.append('email', email);
+      fd.append('website', form.querySelector('[name="website"]').value);
+
+      fetch(WORKER_URL, { method: 'POST', body: fd })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.success) {
+            form.reset();
+            showMsg("Thank you, " + name + ". Kelli will be in touch shortly \u2014 no pressure, no obligation.", false);
+            btn.textContent = 'Sent \u2713';
+            setTimeout(function(){ btn.textContent = 'Get in Touch'; btn.disabled = false; }, 4000);
+          } else {
+            showMsg(data.error || 'Something went wrong. Please try calling (734) 215-5540.', true);
+            btn.textContent = 'Get in Touch'; btn.disabled = false;
+          }
+        })
+        .catch(function() {
+          showMsg('Connection error. Please try calling (734) 215-5540.', true);
+          btn.textContent = 'Get in Touch'; btn.disabled = false;
+        });
+    });
+
+    function showMsg(text, isError) {
+      msg.textContent = text;
+      msg.style.display = 'block';
+      msg.style.color = isError ? '#c0392b' : '#2d6a4f';
+      msg.style.background = isError ? 'rgba(192,57,43,0.08)' : 'rgba(45,106,79,0.08)';
+    }
+  })();
+  </script>
+
+  <script>
+  // Hero video — deferred load, desktop only
+  (function(){
+    if (window.innerWidth < 768) return; // Mobile: poster only, no video download
+    window.addEventListener('load', function(){
+      var wrap = document.getElementById('heroVideoWrap');
+      if (!wrap) return;
+      var vid = document.createElement('video');
+      vid.autoplay = true;
+      vid.loop = true;
+      vid.muted = true;
+      vid.playsInline = true;
+      vid.setAttribute('playsinline','');
+      vid.src = 'hero-video.mp4';
+      vid.style.opacity = '0';
+      vid.style.transition = 'opacity 1s ease';
+      vid.addEventListener('canplay', function(){
+        vid.style.opacity = '1';
+      });
+      wrap.appendChild(vid);
+    });
+  })();
   </script>
 </body>
 </html>
