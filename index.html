@@ -326,32 +326,6 @@
     overflow: hidden;
     background: var(--navy-deep);
   }
-  .hero-video-wrap {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-  .hero-video-wrap video,
-  .hero-video-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-  }
-  .hero-video-wrap video { display: none; }
-  .hero-video-wrap::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to right,
-      rgba(15,26,46,0.88) 0%,
-      rgba(15,26,46,0.72) 40%,
-      rgba(15,26,46,0.55) 100%
-    );
-    z-index: 1;
-  }
   .hero::before {
     content: '';
     position: absolute;
@@ -1057,7 +1031,6 @@
     .process-steps { grid-template-columns: repeat(4, 1fr); }
     section { padding: 6rem 2rem; }
     .hero-inner { padding: 10rem 2rem 7rem; }
-    .hero-video-wrap video { display: block; }
     .stats-bar { margin-top: -4rem; }
   }
 
@@ -1320,8 +1293,6 @@
 
 <main id="main">
 <header class="hero">
-  <div class="hero-video-wrap" id="heroVideoWrap">
-  </div>
   <div class="hero-grid-pattern"></div>
   <div class="hero-inner">
     <div class="hero-badge">
@@ -1853,28 +1824,5 @@
   })();
   </script>
 
-  <script>
-  // Hero video — deferred load, desktop only
-  (function(){
-    if (window.innerWidth < 768) return; // Mobile: poster only, no video download
-    window.addEventListener('load', function(){
-      var wrap = document.getElementById('heroVideoWrap');
-      if (!wrap) return;
-      var vid = document.createElement('video');
-      vid.autoplay = true;
-      vid.loop = true;
-      vid.muted = true;
-      vid.playsInline = true;
-      vid.setAttribute('playsinline','');
-      vid.src = 'hero-video.mp4';
-      vid.style.opacity = '0';
-      vid.style.transition = 'opacity 1s ease';
-      vid.addEventListener('canplay', function(){
-        vid.style.opacity = '1';
-      });
-      wrap.appendChild(vid);
-    });
-  })();
-  </script>
 </body>
 </html>
