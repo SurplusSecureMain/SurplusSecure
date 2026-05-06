@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surplus Secure | Michigan Tax Foreclosure Surplus Recovery</title>
+  <meta name="description" content="Surplus Secure helps former Michigan property owners recover surplus funds from tax foreclosure sales. Led by attorney Kelli Meeks. Free consultation — no recovery, no fee.">
+  <meta name="keywords" content="tax foreclosure surplus, Michigan surplus recovery, surplus funds, tax sale surplus, Kelli Meeks attorney, property surplus recovery">
+  <meta name="author" content="Surplus Secure">
+  <meta name="admin-api" content="">
+  <link rel="canonical" href="https://surplus-secure.com">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Surplus Secure | Michigan Tax Foreclosure Surplus Recovery">
+  <meta property="og:description" content="Recover surplus funds from Michigan tax foreclosure sales. Free consultation — no recovery, no fee.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://surplus-secure.com">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "Surplus Secure",
+    "description": "Michigan tax foreclosure surplus recovery service helping former property owners reclaim surplus funds.",
+    "url": "https://surplus-secure.com",
+    "telephone": "+1-734-215-5540",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "MI",
+      "addressCountry": "US"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Kelli Meeks",
+      "jobTitle": "Attorney"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Michigan"
+    },
+    "priceRange": "No recovery, no fee",
+    "image": "https://surplus-secure.com/images/kelli-meeks-attorney.webp"
+  }
+  </script>
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --color-navy: #0a1628;
+      --color-navy-light: #132240;
+      --color-gold: #c8973e;
+      --color-gold-light: #e4b960;
+      --color-cream: #faf8f4;
+      --color-white: #ffffff;
+      --color-text: #2c3e50;
+      --color-text-light: #6b7c93;
+      --color-border: #e2e8f0;
+      --font-heading: 'DM Serif Display', serif;
+      --font-body: 'Source Sans 3', sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+      --radius: 8px;
+      --transition: 0.3s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text);
+      background: var(--color-white);
+      line-height: 1.7;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 400; line-height: 1.3; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+    /* ===== DARK MODE ===== */
+    body.dark-mode {
+      --color-white: #0f1923;
+      --color-cream: #1a2634;
+      --color-text: #e0e6ed;
+      --color-text-light: #94a3b8;
+      --color-border: #2d3d50;
+      background: #0f1923;
+    }
+    body.dark-mode .nav { background: rgba(15,25,35,0.95); }
+    body.dark-mode .hero { background: linear-gradient(135deg, #0a1628 0%, #132240 100%); }
+    body.dark-mode .card { background: #1a2634; }
+    body.dark-mode .faq-item { background: #1a2634; }
+
+    /* ===== NAVIGATION ===== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-border);
+      transition: var(--transition);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      color: var(--color-navy);
+    }
+    body.dark-mode .nav-logo { color: var(--color-gold); }
+    .nav-logo span { color: var(--color-gold); }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-text);
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-links a:hover { color: var(--color-gold); }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-gold);
+      transition: var(--transition);
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-actions { display: flex; align-items: center; gap: 16px; }
+    .dark-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 8px;
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+    .dark-toggle:hover { background: var(--color-cream); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 12px 28px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+    }
+    .btn-primary {
+      background: var(--color-gold);
+      color: var(--color-white);
+    }
+    .btn-primary:hover {
+      background: var(--color-gold-light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--color-gold);
+      color: var(--color-gold);
+    }
+    .btn-outline:hover {
+      background: var(--color-gold);
+      color: var(--color-white);
+      transform: translateY(-2px);
+    }
+    .btn-white {
+      background: var(--color-white);
+      color: var(--color-navy);
+    }
+    .btn-white:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Mobile nav */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--color-text);
+      transition: var(--transition);
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-border);
+      padding: 24px;
+      z-index: 999;
+    }
+    body.dark-mode .mobile-menu { background: #0f1923; }
+    .mobile-menu.active { display: block; }
+    .mobile-menu a {
+      display: block;
+      padding: 12px 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-text);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-actions .btn { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+      padding: 160px 0 100px;
+      color: var(--color-white);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(200,151,62,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+    .hero h1 span { color: var(--color-gold-light); }
+    .hero p {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 640px;
+      margin: 0 auto 40px;
+      font-weight: 300;
+    }
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 40px;
+      padding: 10px 20px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .hero-badge strong { color: var(--color-gold-light); }
+
+    /* ===== SECTIONS ===== */
+    .section { padding: 100px 0; }
+    .section-alt { background: var(--color-cream); }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .section-heading h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      color: var(--color-navy);
+      margin-bottom: 16px;
+    }
+    body.dark-mode .section-heading h2 { color: var(--color-gold); }
+    .section-heading p {
+      font-size: 1.1rem;
+      color: var(--color-text-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .section-label {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--color-gold);
+      margin-bottom: 12px;
+    }
+
+    /* ===== ABOUT ===== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .about-image {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      background: var(--color-navy-light);
+    }
+    .about-content h3 {
+      font-size: 1.6rem;
+      color: var(--color-navy);
+      margin-bottom: 16px;
+    }
+    body.dark-mode .about-content h3 { color: var(--color-gold-light); }
+    .about-content p {
+      margin-bottom: 16px;
+      color: var(--color-text-light);
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .stat {
+      text-align: center;
+      padding: 20px;
+      background: var(--color-cream);
+      border-radius: var(--radius);
+    }
+    body.dark-mode .stat { background: #132240; }
+    .stat-number {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      color: var(--color-gold);
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      margin-top: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-image { max-width: 400px; margin: 0 auto; }
+    }
+
+    /* ===== PROCESS ===== */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 12.5%;
+      right: 12.5%;
+      height: 2px;
+      background: var(--color-border);
+    }
+    .step {
+      text-align: center;
+      position: relative;
+    }
+    .step-number {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--color-cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      color: var(--color-gold);
+      position: relative;
+      z-index: 1;
+      border: 3px solid var(--color-gold);
+    }
+    body.dark-mode .step-number { background: #132240; }
+    .step h3 {
+      font-size: 1.2rem;
+      color: var(--color-navy);
+      margin-bottom: 12px;
+    }
+    body.dark-mode .step h3 { color: var(--color-cream); }
+    .step p {
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+    }
+
+    @media (max-width: 768px) {
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .process-steps::before { display: none; }
+    }
+    @media (max-width: 480px) {
+      .process-steps { grid-template-columns: 1fr; }
+    }
+
+    /* ===== WHY US ===== */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .card-icon {
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+    }
+    .card h3 {
+      font-size: 1.25rem;
+      color: var(--color-navy);
+      margin-bottom: 12px;
+    }
+    body.dark-mode .card h3 { color: var(--color-gold-light); }
+    .card p {
+      color: var(--color-text-light);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .features-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    }
+
+    /* ===== FAQ ===== */
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .faq-question {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      background: none;
+      border: none;
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--color-text);
+      cursor: pointer;
+      text-align: left;
+    }
+    .faq-question:hover { color: var(--color-gold); }
+    .faq-icon {
+      font-size: 1.4rem;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+    .faq-item.active .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .faq-answer-inner {
+      padding: 0 24px 20px;
+      color: var(--color-text-light);
+      line-height: 1.8;
+    }
+
+    /* ===== CONTACT / CTA ===== */
+    .cta-section {
+      background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+      padding: 100px 0;
+      text-align: center;
+      color: #ffffff;
+      position: relative;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(200,151,62,0.06) 0%, transparent 50%);
+    }
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+    .cta-section p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 560px;
+      margin: 0 auto 40px;
+    }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-phone {
+      margin-top: 32px;
+      font-size: 1.4rem;
+      color: rgba(255,255,255,0.6);
+    }
+    .cta-phone a {
+      color: var(--color-gold-light);
+      font-weight: 700;
+    }
+    .cta-phone a:hover { text-decoration: underline; }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--color-navy);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 40px 0;
+      font-size: 0.9rem;
+    }
+    .footer a { color: var(--color-gold-light); }
+    .footer a:hover { text-decoration: underline; }
+
+    /* ===== EXIT INTENT POPUP ===== */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+    .popup-overlay.active { display: flex; }
+    .popup {
+      background: var(--color-white);
+      border-radius: 12px;
+      padding: 48px 40px;
+      max-width: 480px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+      animation: popupIn 0.35s ease;
+    }
+    body.dark-mode .popup { background: #1a2634; }
+    @keyframes popupIn {
+      from { opacity: 0; transform: scale(0.9) translateY(20px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .popup-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--color-text-light);
+      padding: 4px;
+      line-height: 1;
+    }
+    .popup-close:hover { color: var(--color-text); }
+    .popup h3 {
+      font-size: 1.6rem;
+      color: var(--color-navy);
+      margin-bottom: 12px;
+    }
+    body.dark-mode .popup h3 { color: var(--color-gold); }
+    .popup p {
+      color: var(--color-text-light);
+      margin-bottom: 28px;
+      line-height: 1.7;
+    }
+    .popup .btn { width: 100%; margin-bottom: 12px; }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== UTILITY ===== */
+    @media (max-width: 480px) {
+      .hero { padding: 140px 0 80px; }
+      .section { padding: 72px 0; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .cta-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav" id="main">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">Surplus<span>Secure</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#process">Process</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="nav-actions">
+        <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">&#9790;</button>
+        <a href="#contact" class="btn btn-primary">Free Consultation</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#process">Process</a>
+    <a href="#why-us">Why Us</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <div class="container">
+      <h1>Your Property Was Sold.<br><span>Your Surplus Wasn't.</span></h1>
+      <p>Michigan law entitles former property owners to surplus funds from tax foreclosure sales. Surplus Secure helps you recover what's rightfully yours — at no upfront cost.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">Claim Your Surplus</a>
+        <a href="#process" class="btn btn-outline" style="border-color:rgba(255,255,255,0.3);color:#fff;">See How It Works</a>
+      </div>
+      <div class="hero-badge">
+        <strong>&#9878; Attorney-Led</strong>&nbsp;&nbsp;|&nbsp;&nbsp;No Recovery, No Fee&nbsp;&nbsp;|&nbsp;&nbsp;Michigan Statewide
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image reveal" role="img" aria-label="Attorney Kelli Meeks" style="background:linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%); display:flex; align-items:center; justify-content:center; color:var(--color-gold); font-family:var(--font-heading); font-size:2rem; text-align:center; padding:40px;">
+          Kelli Meeks<br><span style="font-family:var(--font-body); font-size:1rem; color:rgba(255,255,255,0.7); font-weight:300;">Attorney at Law</span>
+        </div>
+        <div class="about-content reveal">
+          <span class="section-label">About Surplus Secure</span>
+          <h3>Recovering What Michigan Owes You</h3>
+          <p>When a property is sold at a Michigan tax foreclosure auction for more than the taxes owed, the former owner is entitled to the surplus. But counties don't always make it easy to collect.</p>
+          <p>Surplus Secure was founded by <strong>attorney Kelli Meeks</strong> to help former property owners navigate the legal process and recover their surplus funds — quickly, professionally, and with zero upfront fees.</p>
+          <p>We handle all filings, court proceedings, and county communications so you can focus on what matters.</p>
+          <div class="about-stats">
+            <div class="stat">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Contingency-Based</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">MI</div>
+              <div class="stat-label">Statewide Coverage</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">&#9878;</div>
+              <div class="stat-label">Attorney-Led</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESS ===== -->
+  <section class="section section-alt" id="process">
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="section-label">How It Works</span>
+        <h2>A Simple, Transparent Process</h2>
+        <p>From initial consultation to funds in your account — we handle everything.</p>
+      </div>
+      <div class="process-steps">
+        <div class="step reveal">
+          <div class="step-number">1</div>
+          <h3>Free Consultation</h3>
+          <p>Contact us by phone or text. We'll review your situation and confirm you're eligible for surplus recovery.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">2</div>
+          <h3>Case Review</h3>
+          <p>We research the sale records, verify surplus amounts, and identify all relevant parties and deadlines.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">3</div>
+          <h3>Legal Filing</h3>
+          <p>Attorney Kelli Meeks prepares and files all necessary legal documents with the court and county treasurer.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">4</div>
+          <h3>Funds Recovered</h3>
+          <p>Once approved, your surplus funds are released. You only pay our fee after you receive your money.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY US ===== -->
+  <section class="section" id="why-us">
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="section-label">Why Choose Us</span>
+        <h2>Built on Trust, Driven by Results</h2>
+        <p>We exist for one reason: to make sure you get the money Michigan owes you.</p>
+      </div>
+      <div class="features-grid">
+        <div class="card reveal">
+          <div class="card-icon">&#9878;</div>
+          <h3>Attorney-Led</h3>
+          <p>Every case is personally handled by attorney Kelli Meeks — not a claims company or third-party processor.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">&#128176;</div>
+          <h3>No Upfront Cost</h3>
+          <p>We work on contingency. If we don't recover your surplus, you owe nothing. Zero risk to you.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">&#128205;</div>
+          <h3>Michigan Focused</h3>
+          <p>We specialize exclusively in Michigan tax foreclosure surplus recovery. This is all we do.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">&#128337;</div>
+          <h3>Time-Sensitive</h3>
+          <p>Michigan has strict deadlines for surplus claims. We act fast to protect your right to recovery.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">&#128101;</div>
+          <h3>Personal Service</h3>
+          <p>You'll work directly with our team — no call centers, no runaround. We keep you informed at every step.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">&#128274;</div>
+          <h3>Confidential</h3>
+          <p>Your information is protected by attorney-client privilege. Everything stays between us.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section section-alt" id="faq">
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="section-label">FAQ</span>
+        <h2>Common Questions</h2>
+        <p>Get answers to the most frequently asked questions about surplus recovery.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question">
+            What is a tax foreclosure surplus?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">When your property is sold at a Michigan tax foreclosure auction for more than the delinquent taxes, interest, and fees owed, the excess amount is called the "surplus." Under Michigan law, you — the former property owner — are entitled to claim those surplus funds.</div>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question">
+            How much does it cost to hire Surplus Secure?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Nothing upfront. We work on a contingency basis, which means we only get paid when you receive your surplus funds. If we don't recover money for you, you owe us nothing.</div>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question">
+            How long does the surplus recovery process take?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Timelines vary by county and the complexity of each case. Some claims resolve in a few weeks, while others may take several months. Attorney Meeks will give you a realistic estimate during your free consultation.</div>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question">
+            Is there a deadline to file a surplus claim?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes. Michigan imposes strict deadlines for surplus claims. If you miss the window, you may forfeit your right to those funds permanently. That's why it's critical to contact us as soon as possible.</div>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question">
+            Do I qualify for surplus recovery?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">If you were the owner of a Michigan property that was sold at a tax foreclosure auction, and the sale price exceeded the amount of taxes owed, you may be entitled to the surplus. Contact us for a free consultation — we'll review the public records and let you know if you have a valid claim.</div>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question">
+            What information do I need to get started?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">To get started, it's helpful to have: the property address, the approximate date of the tax foreclosure sale, and your identification. Don't worry if you don't have everything — we can research the details on your behalf.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT / CTA ===== -->
+  <section class="cta-section" id="contact">
+    <div class="container" style="position:relative;">
+      <h2>Ready to Recover Your Surplus?</h2>
+      <p>Don't let your money sit unclaimed. Contact attorney Kelli Meeks today for a free, no-obligation consultation.</p>
+      <div class="cta-buttons">
+        <a href="tel:7342155540" class="btn btn-primary">&#128222; Call (734) 215-5540</a>
+        <a href="sms:7342155540?body=Hi%2C%20I%27d%20like%20to%20learn%20about%20surplus%20recovery." class="btn btn-white">&#128172; Text Us</a>
+      </div>
+      <div class="cta-phone">
+        or call directly: <a href="tel:7342155540">(734) 215-5540</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Surplus Secure. All rights reserved. | <a href="tel:7342155540">(734) 215-5540</a></p>
+    </div>
+  </footer>
+
+  <!-- ===== EXIT INTENT POPUP ===== -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup">
+      <button class="popup-close" id="popupClose" aria-label="Close popup">&times;</button>
+      <h3>Wait — Don't Leave Money on the Table</h3>
+      <p>Michigan may owe you surplus funds from a tax foreclosure sale. It costs nothing to find out. Talk to attorney Kelli Meeks today.</p>
+      <a href="tel:7342155540" class="btn btn-primary">&#128222; Call Now — It's Free</a>
+      <a href="sms:7342155540?body=Hi%2C%20I%27d%20like%20to%20learn%20about%20surplus%20recovery." class="btn btn-outline">&#128172; Send a Text Instead</a>
+    </div>
+  </div>
+
+  <script>
+    /* ===== MOBILE NAV ===== */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.remove('active'));
+    });
+
+    /* ===== DARK MODE ===== */
+    const darkToggle = document.getElementById('darkToggle');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('ss-theme');
+
+    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      body.classList.add('dark-mode');
+      darkToggle.textContent = '☀';
+    }
+
+    darkToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      const isDark = body.classList.contains('dark-mode');
+      darkToggle.textContent = isDark ? '☀' : '☾';
+      localStorage.setItem('ss-theme', isDark ? 'dark' : 'light');
+    });
+
+    /* ===== SCROLL REVEAL ===== */
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach(el => observer.observe(el));
+
+    /* ===== FAQ ACCORDION ===== */
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const answer = item.querySelector('.faq-answer');
+        const isOpen = item.classList.contains('active');
+
+        document.querySelectorAll('.faq-item.active').forEach(openItem => {
+          openItem.classList.remove('active');
+          openItem.querySelector('.faq-answer').style.maxHeight = null;
+        });
+
+        if (!isOpen) {
+          item.classList.add('active');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+
+    /* ===== EXIT INTENT POPUP ===== */
+    const popupOverlay = document.getElementById('popupOverlay');
+    const popupClose = document.getElementById('popupClose');
+    let popupShown = false;
+
+    function showPopup() {
+      if (popupShown) return;
+      if (sessionStorage.getItem('ss-popup-dismissed')) return;
+      popupShown = true;
+      popupOverlay.classList.add('active');
+    }
+
+    function closePopup() {
+      popupOverlay.classList.remove('active');
+      sessionStorage.setItem('ss-popup-dismissed', '1');
+    }
+
+    popupClose.addEventListener('click', closePopup);
+    popupOverlay.addEventListener('click', (e) => {
+      if (e.target === popupOverlay) closePopup();
+    });
+
+    // Trigger 1: Mouse leaves viewport (desktop exit intent)
+    document.addEventListener('mouseleave', (e) => {
+      if (e.clientY < 10) showPopup();
+    });
+
+    // Trigger 2: Scroll back to top after scrolling down significantly
+    let maxScroll = 0;
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      if (scrollY > maxScroll) maxScroll = scrollY;
+      if (maxScroll > 600 && scrollY < 100) showPopup();
+    });
+
+    // Trigger 3: 45s idle fallback
+    let idleTimer = setTimeout(showPopup, 45000);
+    ['mousemove', 'keydown', 'scroll', 'touchstart'].forEach(evt => {
+      document.addEventListener(evt, () => {
+        clearTimeout(idleTimer);
+        idleTimer = setTimeout(showPopup, 45000);
+      }, { passive: true });
+    });
+
+    /* ===== SMOOTH NAV SHADOW ===== */
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.nav');
+      if (window.scrollY > 20) {
+        nav.style.boxShadow = '0 2px 16px rgba(0,0,0,0.08)';
+      } else {
+        nav.style.boxShadow = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
