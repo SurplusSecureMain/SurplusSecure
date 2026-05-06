@@ -358,6 +358,10 @@
     margin: 0 auto;
     padding: 7rem 1.5rem 5rem;
     width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
   }
 
   .hero-badge {
@@ -422,6 +426,82 @@
     color: rgba(255,255,255,0.4);
     animation: fadeUp 0.7s ease-out 0.6s forwards;
     opacity: 0;
+  }
+
+  .hero-media {
+    margin-top: 2.5rem;
+    animation: fadeUp 0.7s ease-out 0.45s forwards;
+    opacity: 0;
+  }
+  .hero-video-trigger {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    padding: 0;
+    border: 1px solid rgba(200, 164, 86, 0.25);
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+    cursor: pointer;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    font: inherit;
+    color: inherit;
+  }
+  .hero-video-trigger:hover,
+  .hero-video-trigger:focus-visible {
+    transform: translateY(-2px);
+    border-color: var(--gold);
+    box-shadow: 0 24px 60px rgba(200, 164, 86, 0.25);
+    outline: none;
+  }
+  .hero-video-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-video-play {
+    position: absolute;
+    top: 50%;
+    left: 28%;
+    transform: translate(-50%, -50%);
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gold);
+    color: var(--navy-deep);
+    border-radius: 50%;
+    box-shadow: 0 8px 24px rgba(30, 51, 82, 0.35);
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+  .hero-video-trigger:hover .hero-video-play,
+  .hero-video-trigger:focus-visible .hero-video-play {
+    transform: translate(-50%, -50%) scale(1.08);
+    background: var(--gold-light);
+  }
+  .hero-video-play svg {
+    margin-left: 3px;
+  }
+  .hero-video-trigger video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-video-active {
+    cursor: default;
+    transform: none;
+  }
+  .hero-video-active:hover {
+    transform: none;
+    border-color: rgba(200, 164, 86, 0.25);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
   }
 
   .btn-primary {
@@ -1030,7 +1110,13 @@
     .about-grid { grid-template-columns: 1fr 1fr 1fr; }
     .process-steps { grid-template-columns: repeat(4, 1fr); }
     section { padding: 6rem 2rem; }
-    .hero-inner { padding: 10rem 2rem 7rem; }
+    .hero-inner {
+      padding: 10rem 2rem 7rem;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 3.5rem;
+    }
+    .hero-media { margin-top: 0; }
+    .hero-video-trigger { max-width: 100%; }
     .stats-bar { margin-top: -4rem; }
   }
 
@@ -1295,19 +1381,29 @@
 <header class="hero">
   <div class="hero-grid-pattern"></div>
   <div class="hero-inner">
-    <div class="hero-badge">
-      <div class="hero-badge-dot"></div>
-      <span class="hero-badge-text">Michigan Tax Foreclosure Recovery</span>
+    <div class="hero-text">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span class="hero-badge-text">Michigan Tax Foreclosure Recovery</span>
+      </div>
+      <h1 data-editable="hero_headline">Lost Your Home to Tax Foreclosure? <em>You May Be Owed Money.</em></h1>
+      <p class="hero-sub">
+        When a county sells your home for more than what you owed in taxes, that extra money is yours. We help you get it back — with no upfront cost to you.
+      </p>
+      <div class="hero-actions">
+        <a href="tel:7342155540" class="btn-primary">📞 Free Consultation</a>
+        <a href="sms:7342155540?body=Hi%2C%20I%27d%20like%20to%20learn%20about%20recovering%20my%20surplus%20funds." class="btn-outline">💬 Prefer to text? Message us</a>
+      </div>
+      <span class="hero-hint">Free consultation · No upfront cost · We only get paid when you do</span>
     </div>
-    <h1 data-editable="hero_headline">Lost Your Home to Tax Foreclosure? <em>You May Be Owed Money.</em></h1>
-    <p class="hero-sub">
-      When a county sells your home for more than what you owed in taxes, that extra money is yours. We help you get it back — with no upfront cost to you.
-    </p>
-    <div class="hero-actions">
-      <a href="tel:7342155540" class="btn-primary">📞 Free Consultation</a>
-      <a href="sms:7342155540?body=Hi%2C%20I%27d%20like%20to%20learn%20about%20recovering%20my%20surplus%20funds." class="btn-outline">💬 Prefer to text? Message us</a>
+    <div class="hero-media">
+      <button type="button" class="hero-video-trigger" id="heroVideoTrigger" aria-label="Play introduction video from attorney Kelli Meeks">
+        <img class="hero-video-poster" src="hero-poster.webp" alt="" width="1920" height="1103" fetchpriority="high" decoding="async">
+        <span class="hero-video-play" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+        </span>
+      </button>
     </div>
-    <span class="hero-hint">Free consultation · No upfront cost · We only get paid when you do</span>
   </div>
 </header>
 
@@ -1823,6 +1919,27 @@
     }
   })();
   </script>
+
+<script>
+  (function () {
+    var trigger = document.getElementById('heroVideoTrigger');
+    if (!trigger) return;
+    trigger.addEventListener('click', function () {
+      var wrap = document.createElement('div');
+      wrap.className = 'hero-video-trigger hero-video-active';
+      var video = document.createElement('video');
+      video.src = 'hero-video.mp4';
+      video.controls = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      video.preload = 'auto';
+      wrap.appendChild(video);
+      trigger.replaceWith(wrap);
+      var play = video.play();
+      if (play && typeof play.catch === 'function') play.catch(function () {});
+    }, { once: true });
+  })();
+</script>
 
 </body>
 </html>
