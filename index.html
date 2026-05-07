@@ -423,7 +423,7 @@
     width: 100%;
     margin-top: 0.75rem;
     font-size: 0.82rem;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.72);
     animation: fadeUp 0.7s ease-out 0.6s forwards;
     opacity: 0;
   }
@@ -720,8 +720,9 @@
   .process-step::before {
     content: counter(step, decimal-leading-zero);
     font-family: 'DM Serif Display', serif;
-    font-size: 2rem;
-    color: rgba(200, 164, 86, 0.2);
+    font-size: 2.25rem;
+    color: var(--gold);
+    opacity: 0.85;
     position: absolute;
     top: 1rem;
     right: 1.25rem;
@@ -772,7 +773,7 @@
     justify-content: center;
     font-size: 1.2rem;
   }
-  .why-card h4 {
+  .why-card h3 {
     font-size: 1rem;
     margin-bottom: 0.35rem;
     font-family: 'Source Sans 3', sans-serif;
@@ -1088,14 +1089,14 @@
   }
   .footer-logo span { color: var(--gold); }
   .footer p {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.72);
     font-size: 0.8rem;
   }
   .footer-disclaimer {
     margin-top: 1.25rem;
     padding-top: 1.25rem;
     border-top: 1px solid rgba(255,255,255,0.08);
-    color: rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.7);
     font-size: 0.7rem;
     line-height: 1.6;
     max-width: 600px;
@@ -1173,7 +1174,7 @@
     .form-submit { background: #D4C9B0; color: #0F1E2E; }
     .form-submit:hover { background: var(--gold); }
     .nav-logo-icon { background: #1A2A3C; }
-    .why-card h4, .contact-item a { color: #D4C9B0; }
+    .why-card h3, .contact-item a { color: #D4C9B0; }
     .contact-item-icon { background: rgba(200, 164, 86, 0.12); }
     .nav-cta { background: #D4C9B0; color: #0F1E2E !important; }
     .nav-cta:hover { background: var(--gold); color: #0F1E2E !important; }
@@ -1458,7 +1459,7 @@
         <!-- Honeypot -->
         <div style="position:absolute;left:-9999px;" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
         <button type="submit" class="form-submit" id="ssSubmitBtn">Get in Touch</button>
-        <div id="ssFormMsg" style="display:none;margin-top:0.75rem;padding:0.75rem 1rem;border-radius:8px;font-size:0.9rem;line-height:1.5;"></div>
+        <div id="ssFormMsg" role="status" aria-live="polite" style="display:none;margin-top:0.75rem;padding:0.75rem 1rem;border-radius:8px;font-size:0.9rem;line-height:1.5;"></div>
       </form>
       <div style="text-align:center;margin-top:1.25rem;padding-top:1rem;border-top:1px solid rgba(27,42,65,0.08);">
         <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:0.5rem;">Or reach Kelli directly</p>
@@ -1540,30 +1541,30 @@
     </p>
     <div class="why-grid">
       <div class="why-card reveal">
-        <div class="why-card-icon">🏛️</div>
+        <div class="why-card-icon" aria-hidden="true">🏛️</div>
         <div>
-          <h4>40 Years of Legal Experience</h4>
+          <h3>40 Years of Legal Experience</h3>
           <p>Our lead attorney, Kelli Meeks, brings four decades of legal knowledge to every case.</p>
         </div>
       </div>
       <div class="why-card reveal">
-        <div class="why-card-icon">🎯</div>
+        <div class="why-card-icon" aria-hidden="true">🎯</div>
         <div>
-          <h4>Focused on One Thing</h4>
+          <h3>Focused on One Thing</h3>
           <p>We specialize in surplus fund recovery. This is all we do, and we do it well.</p>
         </div>
       </div>
       <div class="why-card reveal">
-        <div class="why-card-icon">⏰</div>
+        <div class="why-card-icon" aria-hidden="true">⏰</div>
         <div>
-          <h4>We Never Miss a Deadline</h4>
+          <h3>We Never Miss a Deadline</h3>
           <p>Michigan law has strict time limits. We track every date so your claim stays on track.</p>
         </div>
       </div>
       <div class="why-card reveal">
-        <div class="why-card-icon">💬</div>
+        <div class="why-card-icon" aria-hidden="true">💬</div>
         <div>
-          <h4>You'll Understand Every Step</h4>
+          <h3>You'll Understand Every Step</h3>
           <p>We explain things clearly and keep you informed from start to finish. No confusing jargon.</p>
         </div>
       </div>
