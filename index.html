@@ -432,6 +432,7 @@
     margin-top: 2.5rem;
     animation: fadeUp 0.7s ease-out 0.45s forwards;
     opacity: 0;
+    order: -1;
   }
   .hero-video-trigger {
     position: relative;
@@ -467,7 +468,7 @@
   .hero-video-play {
     position: absolute;
     top: 50%;
-    left: 28%;
+    left: 50%;
     transform: translate(-50%, -50%);
     width: 72px;
     height: 72px;
@@ -1115,7 +1116,7 @@
       grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
       gap: 3.5rem;
     }
-    .hero-media { margin-top: 0; }
+    .hero-media { margin-top: 0; order: 0; }
     .hero-video-trigger { max-width: 100%; }
     .stats-bar { margin-top: -4rem; }
   }
