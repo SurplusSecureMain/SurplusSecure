@@ -15,10 +15,14 @@
 <meta property="og:description" content="Lost your home to tax foreclosure? You may be owed surplus money from the sale. Surplus Secure handles the legal process — no upfront cost. Call or text (734) 215-5540.">
 <meta property="og:url" content="https://surplussecure.com/">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://surplussecure.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Surplus Secure — Michigan Tax Foreclosure Recovery. Lost Your Home to Tax Foreclosure? You May Be Owed Money.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Surplus Secure — Michigan Tax Foreclosure Surplus Recovery">
 <meta name="twitter:description" content="Recover your surplus funds after tax foreclosure. No upfront cost. Led by attorney Kelli Meeks. Call or text (734) 215-5540.">
-<script type="application/ld+json">
+<meta name="twitter:image" content="https://surplussecure.com/og-image.png"><script type="application/ld+json">
 [
   {
     "@context": "https://schema.org",
@@ -360,9 +364,15 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "top"
+      "media"
+      "bottom";
     gap: 2.5rem;
     align-items: center;
   }
+  .hero-text-top    { grid-area: top; }
+  .hero-text-bottom { grid-area: bottom; }
 
   .hero-badge {
     display: inline-flex;
@@ -429,10 +439,10 @@
   }
 
   .hero-media {
-    margin-top: 2.5rem;
+    grid-area: media;
+    margin-top: 0;
     animation: fadeUp 0.7s ease-out 0.45s forwards;
     opacity: 0;
-    order: -1;
   }
   .hero-video-trigger {
     position: relative;
@@ -1122,9 +1132,15 @@
     .hero-inner {
       padding: 10rem 2rem 7rem;
       grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-      gap: 3.5rem;
+      grid-template-areas:
+        "top    media"
+        "bottom media";
+      gap: 0 3.5rem;
+      align-items: start;
     }
-    .hero-media { margin-top: 0; order: 0; }
+    .hero-text-top    { padding-top: 0; }
+    .hero-text-bottom { padding-top: 1.5rem; }
+    .hero-media       { align-self: center; }
     .hero-video-trigger { max-width: 100%; }
     .stats-bar { margin-top: -4rem; }
   }
@@ -1390,20 +1406,12 @@
 <header class="hero">
   <div class="hero-grid-pattern"></div>
   <div class="hero-inner">
-    <div class="hero-text">
+    <div class="hero-text-top">
       <div class="hero-badge">
         <div class="hero-badge-dot"></div>
         <span class="hero-badge-text">Michigan Tax Foreclosure Recovery</span>
       </div>
       <h1 data-editable="hero_headline">Lost Your Home to Tax Foreclosure? <em>You May Be Owed Money.</em></h1>
-      <p class="hero-sub">
-        When a county sells your home for more than what you owed in taxes, that extra money is yours. We help you get it back — with no upfront cost to you.
-      </p>
-      <div class="hero-actions">
-        <a href="tel:7342155540" class="btn-primary"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> Free Consultation</a>
-        <a href="sms:7342155540?body=Hi%2C%20I%27d%20like%20to%20learn%20about%20recovering%20my%20surplus%20funds." class="btn-outline">💬 Prefer to text? Message us</a>
-      </div>
-      <span class="hero-hint">Free consultation · No upfront cost · We only get paid when you do</span>
     </div>
     <div class="hero-media">
       <button type="button" class="hero-video-trigger" id="heroVideoTrigger" aria-label="Play introduction video from attorney Kelli Meeks">
@@ -1412,6 +1420,16 @@
           <svg viewBox="0 0 24 24" width="28" height="28"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
         </span>
       </button>
+    </div>
+    <div class="hero-text-bottom">
+      <p class="hero-sub">
+        When a county sells your home for more than what you owed in taxes, that extra money is yours. We help you get it back — with no upfront cost to you.
+      </p>
+      <div class="hero-actions">
+        <a href="tel:7342155540" class="btn-primary"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> Free Consultation</a>
+        <a href="sms:7342155540?body=Hi%2C%20I%27d%20like%20to%20learn%20about%20recovering%20my%20surplus%20funds." class="btn-outline">💬 Text Us</a>
+      </div>
+      <span class="hero-hint">Free consultation · No upfront cost · We only get paid when you do</span>
     </div>
   </div>
 </header>
