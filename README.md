@@ -22,7 +22,7 @@ Built and maintained by [Ebony Iris Media LLC](https://ebonyirismedia.com).
 
 ## Deployment
 
-**Landing Page** → Cloudflare Pages (auto-deploys from this repo on push to `main`)
+**Landing Page** → Cloudflare Pages (manual `wrangler pages deploy` — Pages is not Git-connected here; see `CLAUDE.md` for the full ship ritual)
 
 **Admin Dashboard** → Cloudflare Workers + KV (see `platform/README.md`)
 
@@ -30,8 +30,8 @@ Built and maintained by [Ebony Iris Media LLC](https://ebonyirismedia.com).
 
 | Namespace | ID | Purpose |
 |-----------|------|---------|
-| surplus-secure-content | `0df9acd7ac6a4ccf97967b00af48605c` | Landing page editable content |
-| surplus-secure-data | `4c0e187f29874f7db7410174e264041a` | County operational data |
+| surplus-secure-content | `be436a122b274134b34c4f9a5a14f489` | Landing page editable content |
+| surplus-secure-data | `bfdb05c089624a79b62251f6c8ad5c1e` | County operational data |
 
 ## Cost
 

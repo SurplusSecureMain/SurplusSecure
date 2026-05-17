@@ -1,17 +1,15 @@
 name = "surplus-secure-platform"
 main = "src/worker.js"
 compatibility_date = "2024-09-23"
+account_id = "6a09797d8994f0915708aec9f6354645"
 
 [vars]
 APP_PASSWORD = ""  # Set via: wrangler secret put APP_PASSWORD
 
-# KV Namespaces — create with:
-#   wrangler kv:namespace create CONTENT
-#   wrangler kv:namespace create DATA
 [[kv_namespaces]]
 binding = "CONTENT"
-id = "0df9acd7ac6a4ccf97967b00af48605c"  # surplus-secure-content
+id = "be436a122b274134b34c4f9a5a14f489"  # surplus-secure-content (Kelli)
 
 [[kv_namespaces]]
 binding = "DATA"
-id = "4c0e187f29874f7db7410174e264041a"  # surplus-secure-data
+id = "bfdb05c089624a79b62251f6c8ad5c1e"  # surplus-secure-data (Kelli)

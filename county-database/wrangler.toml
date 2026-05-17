@@ -1,7 +1,7 @@
 name = "surplus-secure"
 main = "dist/worker.js"
 compatibility_date = "2024-12-01"
-account_id = "2f360912c43a62aa5d0048d6c9c0671b"
+account_id = "6a09797d8994f0915708aec9f6354645"
 
 [observability]
 enabled = true
