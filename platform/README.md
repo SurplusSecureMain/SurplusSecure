@@ -115,11 +115,13 @@ Then add `data-editable` attributes to the landing page:
 
 ## Custom Domain
 
-To put the admin on `admin.surplus-secure.com`:
+To put the admin on `admin.surplussecure.com`:
 
-1. In Cloudflare dashboard → Workers → surplus-secure-platform → Triggers
-2. Add Custom Domain: `admin.surplus-secure.com`
-3. DNS automatically configured if domain is on Cloudflare
+1. In Cloudflare dashboard (Kelli's account) → Workers → surplus-secure-platform → Triggers
+2. Add Custom Domain: `admin.surplussecure.com`
+3. DNS automatically configured (zone is on Cloudflare under Kelli's account post-migration)
+
+> Note: the `surplus-secure-platform` Worker is not currently deployed to Kelli's account — it was deferred during the 2026-05-16 migration because the empty KV namespaces would have shown an empty admin dashboard. Deploy when ready: `cd platform && wrangler deploy`.
 
 ## Cost
 
