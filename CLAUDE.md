@@ -4,29 +4,28 @@ Marketing site for **Surplus Secure**, a Michigan tax-foreclosure surplus-funds 
 
 ## This repo's role
 
-`SurplusSecureMain/SurplusSecure` (this repo) is the **canonical-going-forward source**, set up under Kelli's own Cloudflare account during a copy-first migration:
+`SurplusSecureMain/SurplusSecure` (this repo) is the **production canonical source**. As of 2026-05-16, `surplussecure.com` is served end-to-end from Kelli's own Cloudflare account; the previous EIM-owned setup is decommissioned.
 
-- Staging URL: **https://surplus-secure-2bp.pages.dev** (Cloudflare Pages, **manual** `wrangler pages deploy`; not Git-connected yet).
+- Live production: **https://surplussecure.com** (also `https://www.surplussecure.com`).
+- Direct Pages URL: **https://surplus-secure-2bp.pages.dev** (Kelli's Pages project; **manual** `wrangler pages deploy`, not Git-connected).
 - Cloudflare account: **`6a09797d8994f0915708aec9f6354645`** (Kelli's, created 2026-05-07).
 - Worker: **`ss-form.kelli-6a0.workers.dev`** (deployed under same Kelli account).
-
-Production at `surplussecure.com` is still served from the EIM-owned account/repo (`EbonyIrisMedia/SurplusSecure`). After verification on the staging URL, the `surplussecure.com` zone moves to Kelli's account and Pages adopts the custom domain.
-
-**Until the domain shift completes, every change shipped here must also be shipped to the legacy repo** (see "Sister repo" below).
+- Hyphenated `surplus-secure.com` 301-redirects (path + query preserved) to canonical via a Single Redirect rule on its own zone in the same account.
 
 ## Local clone
 
 `~/SurplusSecure-kelli/`
 
-The other clone is at `~/SurplusSecure-work/` (legacy production repo).
+The legacy clone at `~/SurplusSecure-work/` is deprecated — kept for historical reference and short-window rollback only; nothing shipped from there affects production anymore.
 
 ## Stack
 
 - `index.html` — entire site, inline CSS + JS.
 - `hero-video.mp4` — 960×540 H.264 + AAC stereo, 82s, ~9.4 MB. Click-to-play (no autoplay).
 - `hero-poster.webp` — 1920×1103 16:9, ~60 KB.
-- `workers/ss-form/` — Cloudflare Worker (form relay).
-- `wrangler.toml` `account_id = "6a09797d8994f0915708aec9f6354645"`.
+- `workers/ss-form/` — Cloudflare Worker (form relay), `account_id` pinned to Kelli's.
+- `platform/` — admin dashboard + KV API Worker (deployed to Kelli account as `surplus-secure-platform`; not bound to a public hostname yet).
+- `county-database/` — 83-county Michigan data Worker (deployed to Kelli account as `surplus-secure`; not bound to a public hostname yet).
 
 ## Contact form delivery flow
 
@@ -41,35 +40,25 @@ Worker secrets:
 - `APPS_SCRIPT_URL` — full `/exec` URL of deployed Apps Script.
 - `APPS_SCRIPT_SECRET` — HMAC-style shared secret matched by the script.
 
-The Apps Script (`SS Form Mailer`) lives in Kelli's Google Workspace and runs as her account, so emails appear from `kelli@surplussecure.com`.
+The Apps Script (`SS Form Mailer`) lives in Kelli's Google Workspace and runs as her account, so emails appear from `kelli@surplussecure.com`. The `email` field on the form lands in the message's `Reply-To` header — recipient is always Kelli's inbox.
 
 The Worker handles the Apps Script 302 manually — `script.google.com/.../exec` redirects to `script.googleusercontent.com/macros/echo` and only accepts GET on the second hop. Don't add `--post301`-equivalent flags or set `redirect: 'follow'` with body re-send.
 
-## Ship ritual (single-repo)
+## Ship ritual
 
 1. Branch off `main`: `git checkout -b descriptive-name`.
 2. Edit. Commit. Push.
 3. `gh pr create --base main --head <branch> --title ... --body ...`
 4. `gh pr merge <num> --squash --delete-branch --repo SurplusSecureMain/SurplusSecure`
-5. **Pages is NOT Git-connected here.** Manually redeploy:
+5. **Pages is NOT Git-connected.** Manually redeploy:
    ```
    export CLOUDFLARE_API_TOKEN=<...>
    export CLOUDFLARE_ACCOUNT_ID=6a09797d8994f0915708aec9f6354645
    wrangler pages deploy . --project-name surplus-secure --branch main --commit-dirty=true
    ```
-6. Verify: `curl -s https://surplus-secure-2bp.pages.dev | grep <change>`.
+6. Verify: `curl -s https://surplussecure.com | grep <change>`.
 
 **Never push directly to main.** Always go through a PR.
-
-## Sister repo: dual-repo ship
-
-Until the domain shift is done, every site change ships to **both** repos:
-
-1. Apply the change here.
-2. Mirror to `~/SurplusSecure-work/`. **Watch for `WORKER_URL` drift in `index.html`:** this repo uses `https://ss-form.kelli-6a0.workers.dev`; the sister uses `https://ss-form.ebony-iris.workers.dev`. After `cp index.html`, restore the sister's value with sed.
-3. Branch + commit + push + PR + merge in each repo.
-4. The legacy repo's Pages auto-deploys from `main` (no manual command). This repo's Pages requires `wrangler pages deploy` (above).
-5. Verify both: `curl -s https://surplus-secure-2bp.pages.dev` and `curl -s https://surplussecure.com`.
 
 ## Worker (re)deploy
 
@@ -86,13 +75,13 @@ echo '<value>' | wrangler secret put APPS_SCRIPT_SECRET
 
 Tail logs: `wrangler tail`.
 
-## Verify staging health
+## Verify production health
 
 ```
-curl -s -o /dev/null -w "HTTP %{http_code}\n" https://surplus-secure-2bp.pages.dev
+curl -s -o /dev/null -w "HTTP %{http_code}\n" https://surplussecure.com
 curl -s -X POST https://ss-form.kelli-6a0.workers.dev \
   -F "firstName=HealthCheck" -F "phone=" -F "email=ramayan@ebonyiris.com" -F "website="
-# Expect HTTP 200 + {"success":true}; an email should land in Kelli's inbox.
+# Expect HTTP 200 + {"success":true}; an email should land in kelli@surplussecure.com.
 ```
 
 ## Things not to break
@@ -101,8 +90,5 @@ curl -s -X POST https://ss-form.kelli-6a0.workers.dev \
 - **No black bars / no fake background padding** on the hero video.
 - **`tel:` and `sms:` CTAs** are split (`Call (734) 215-5540` vs `Text (734) 215-5540`) — don't merge them back into a single "Call or Text" tel: link; that confused users.
 - **Honeypot field `website`** — silently succeed if filled. Don't add visible validation.
-- **Cloudflare account drift** — never deploy this repo's Worker into the legacy account or vice versa. `wrangler.toml` `account_id` is repo-bound.
-
-## Surface area I shouldn't touch
-
-- `admin-preview/`, `county-database/`, `platform/`, `tools/` — not part of the live site. Out of scope unless the user explicitly asks.
+- **Cloudflare account drift** — `wrangler.toml` `account_id` is repo-bound to Kelli's account in every Worker dir. Don't change it.
+- **Pages custom domain CNAMEs** — must point to `surplus-secure-2bp.pages.dev` (the account-specific URL), NOT `surplus-secure.pages.dev` (the shared subdomain name). Pointing at the shared name causes routing ambiguity if any other CF account ever creates a project of the same name.
