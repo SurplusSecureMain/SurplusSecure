@@ -1968,5 +1968,83 @@
   })();
 </script>
 
+<script>
+  // Desktop / tablet "Call" handling.
+  // Phones have a native dialer, so tel: links there are left alone. On
+  // desktop and tablets we still let tel: hand off to whatever calling app is
+  // registered (FaceTime, Skype, Teams, Windows Phone Link, etc.); if nothing
+  // takes over the window shortly after, we assume no handler is installed and
+  // copy the number to the clipboard with a small confirmation toast.
+  (function () {
+    var isPhone = /Android.+Mobile|iPhone|iPod|Windows Phone|BlackBerry|Mobi/i.test(navigator.userAgent);
+    if (isPhone) return;
+
+    var PHONE_DISPLAY = '(734) 215-5540';
+    var toast;
+
+    function showToast(text) {
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.setAttribute('role', 'status');
+        toast.style.cssText =
+          'position:fixed;left:50%;bottom:2rem;transform:translateX(-50%) translateY(1rem);' +
+          'background:#0F1E2E;color:#fff;padding:0.75rem 1.4rem;border-radius:50px;' +
+          'font:600 0.95rem "Source Sans 3",sans-serif;box-shadow:0 8px 24px rgba(0,0,0,0.28);' +
+          'opacity:0;transition:opacity .25s ease,transform .25s ease;z-index:100000;pointer-events:none;max-width:90vw;text-align:center;';
+        document.body.appendChild(toast);
+      }
+      toast.textContent = text;
+      requestAnimationFrame(function () {
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateX(-50%) translateY(0)';
+      });
+      clearTimeout(toast._t);
+      toast._t = setTimeout(function () {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(-50%) translateY(1rem)';
+      }, 3200);
+    }
+
+    function copyNumber() {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(PHONE_DISPLAY).then(
+          function () { showToast('📋 Copied ' + PHONE_DISPLAY + ' — paste it into your phone'); },
+          function () { showToast('📞 Call us at ' + PHONE_DISPLAY); }
+        );
+        return;
+      }
+      var ta = document.createElement('textarea');
+      ta.value = PHONE_DISPLAY;
+      ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;';
+      document.body.appendChild(ta);
+      ta.focus(); ta.select();
+      try { document.execCommand('copy'); showToast('📋 Copied ' + PHONE_DISPLAY + ' — paste it into your phone'); }
+      catch (e) { showToast('📞 Call us at ' + PHONE_DISPLAY); }
+      document.body.removeChild(ta);
+    }
+
+    document.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        var handedOff = false;
+        function markHandedOff() { handedOff = true; }
+
+        // If a calling app opens, the page loses focus / is hidden.
+        window.addEventListener('blur', markHandedOff, { once: true });
+        document.addEventListener('visibilitychange', markHandedOff, { once: true });
+
+        // Attempt the hand-off to the OS-registered tel: handler.
+        try { window.location.href = link.getAttribute('href'); } catch (err) {}
+
+        setTimeout(function () {
+          window.removeEventListener('blur', markHandedOff);
+          document.removeEventListener('visibilitychange', markHandedOff);
+          if (!handedOff && !document.hidden) copyNumber();
+        }, 1200);
+      });
+    });
+  })();
+</script>
+
 </body>
 </html>
