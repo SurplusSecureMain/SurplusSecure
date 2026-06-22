@@ -1970,11 +1970,11 @@
 
 <script>
   // Desktop / tablet "Call" handling.
-  // Phones have a native dialer, so tel: links there are left alone. On
-  // desktop and tablets we still let tel: hand off to whatever calling app is
-  // registered (FaceTime, Skype, Teams, Windows Phone Link, etc.); if nothing
-  // takes over the window shortly after, we assume no handler is installed and
-  // copy the number to the clipboard with a small confirmation toast.
+  // Phones have a native dialer, so tel: links there are left alone. On desktop
+  // and tablets every Call click copies the number and shows a confirmation
+  // toast (so the click is never a dead end), and also attempts to hand off to
+  // whatever calling app is registered as the tel: handler (FaceTime, Skype,
+  // Teams, Windows Phone Link, etc.).
   (function () {
     var isPhone = /Android.+Mobile|iPhone|iPod|Windows Phone|BlackBerry|Mobi/i.test(navigator.userAgent);
     if (isPhone) return;
@@ -2008,7 +2008,7 @@
     function copyNumber() {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(PHONE_DISPLAY).then(
-          function () { showToast('📋 Copied ' + PHONE_DISPLAY + ' — paste it into your phone'); },
+          function () { showToast('📋 Copied ' + PHONE_DISPLAY); },
           function () { showToast('📞 Call us at ' + PHONE_DISPLAY); }
         );
         return;
@@ -2018,7 +2018,7 @@
       ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;';
       document.body.appendChild(ta);
       ta.focus(); ta.select();
-      try { document.execCommand('copy'); showToast('📋 Copied ' + PHONE_DISPLAY + ' — paste it into your phone'); }
+      try { document.execCommand('copy'); showToast('📋 Copied ' + PHONE_DISPLAY); }
       catch (e) { showToast('📞 Call us at ' + PHONE_DISPLAY); }
       document.body.removeChild(ta);
     }
@@ -2026,21 +2026,12 @@
     document.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
       link.addEventListener('click', function (e) {
         e.preventDefault();
-        var handedOff = false;
-        function markHandedOff() { handedOff = true; }
-
-        // If a calling app opens, the page loses focus / is hidden.
-        window.addEventListener('blur', markHandedOff, { once: true });
-        document.addEventListener('visibilitychange', markHandedOff, { once: true });
-
-        // Attempt the hand-off to the OS-registered tel: handler.
+        // Always give immediate feedback (copy + toast) so the click is never a
+        // dead end on desktop/tablet, and also attempt to hand off to whatever
+        // calling app is registered as the tel: handler. Copy runs first while
+        // we're still inside the user gesture (required by the Clipboard API).
+        copyNumber();
         try { window.location.href = link.getAttribute('href'); } catch (err) {}
-
-        setTimeout(function () {
-          window.removeEventListener('blur', markHandedOff);
-          document.removeEventListener('visibilitychange', markHandedOff);
-          if (!handedOff && !document.hidden) copyNumber();
-        }, 1200);
       });
     });
   })();
