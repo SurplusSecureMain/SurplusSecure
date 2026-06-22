@@ -1972,13 +1972,20 @@
   // Desktop / tablet "Call" handling.
   // Phones have a native dialer, so tel: links there are left alone. On desktop
   // and tablets every Call click copies the number and shows a confirmation
-  // toast (so the click is never a dead end), and also attempts to hand off to
-  // whatever calling app is registered as the tel: handler (FaceTime, Skype,
-  // Teams, Windows Phone Link, etc.).
+  // toast (so the click is never a dead end), and also hands off to a calling
+  // app. On Mac/iPad that's FaceTime (via the facetime-audio:// scheme);
+  // elsewhere it's whatever owns the tel: handler (Skype, Teams, Phone Link, …).
   (function () {
-    var isPhone = /Android.+Mobile|iPhone|iPod|Windows Phone|BlackBerry|Mobi/i.test(navigator.userAgent);
+    var ua = navigator.userAgent;
+    var isPhone = /Android.+Mobile|iPhone|iPod|Windows Phone|BlackBerry|Mobi/i.test(ua);
     if (isPhone) return;
+    // macOS desktop and iPadOS Safari both report "Macintosh" and ship FaceTime,
+    // which owns the facetime-audio:// scheme. Route Call clicks there directly so
+    // they reliably open FaceTime instead of leaning on a tel: handler that may
+    // not be registered.
+    var isMac = /Macintosh|Mac OS X/i.test(ua);
 
+    var PHONE_E164 = '+17342155540';
     var PHONE_DISPLAY = '(734) 215-5540';
     var toast;
 
@@ -2027,11 +2034,13 @@
       link.addEventListener('click', function (e) {
         e.preventDefault();
         // Always give immediate feedback (copy + toast) so the click is never a
-        // dead end on desktop/tablet, and also attempt to hand off to whatever
-        // calling app is registered as the tel: handler. Copy runs first while
-        // we're still inside the user gesture (required by the Clipboard API).
+        // dead end, then hand off to a calling app. On Mac/iPad that's FaceTime
+        // via facetime-audio://; elsewhere it's whatever owns the tel: handler.
+        // Copy runs first while we're still inside the user gesture (required by
+        // the Clipboard API).
         copyNumber();
-        try { window.location.href = link.getAttribute('href'); } catch (err) {}
+        var target = isMac ? ('facetime-audio://' + PHONE_E164) : link.getAttribute('href');
+        try { window.location.href = target; } catch (err) {}
       });
     });
   })();
