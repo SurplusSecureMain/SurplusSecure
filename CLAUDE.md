@@ -20,10 +20,13 @@ The legacy clone at `~/SurplusSecure-work/` is deprecated — kept for historica
 
 ## Stack
 
-- `index.html` — entire site, inline CSS + JS.
-- `hero-video.mp4` — 960×540 H.264 + AAC stereo, 82s, ~9.4 MB. Click-to-play (no autoplay).
-- `hero-poster.webp` — 1920×1103 16:9, ~60 KB.
-- `workers/ss-form/` — Cloudflare Worker (form relay), `account_id` pinned to Kelli's.
+- **`public/` is the ONLY directory that gets deployed.** `wrangler pages deploy public/` uploads exactly what's in that folder — nothing else in the repo (CLAUDE.md, docs/, platform/, county-database/, workers/, brand-assets/, tools/, admin-preview/) is ever public. Before 2026-07-09 the ship ritual deployed the repo root (`wrangler pages deploy .`), which silently served all of those — including the admin dashboard's auth source and this file — live at surplussecure.com. If you ever add a new top-level file/folder that should be public, it has to be added inside `public/`, not the repo root.
+- `public/index.html` — entire site, inline CSS + JS.
+- `public/hero-video.mp4` — 960×540 H.264 + AAC stereo, 82s, ~9.4 MB. Click-to-play (no autoplay).
+- `public/hero-poster.webp` — 1920×1103 16:9, ~60 KB.
+- `public/robots.txt`, `public/llms.txt`, `public/sitemap.xml`, `public/_headers` — AEO Site Protocol + security headers.
+- `public/images/`, `public/fonts/` — self-hosted images and fonts (no third-party font CDN).
+- `workers/ss-form/` — Cloudflare Worker (form relay), `account_id` pinned to Kelli's. Deployed separately via `wrangler deploy` from its own directory — unaffected by the `public/` restructure.
 - `platform/` — admin dashboard + KV API Worker (deployed to Kelli account as `surplus-secure-platform`; not bound to a public hostname yet).
 - `county-database/` — 83-county Michigan data Worker (deployed to Kelli account as `surplus-secure`; not bound to a public hostname yet).
 
@@ -54,8 +57,9 @@ The Worker handles the Apps Script 302 manually — `script.google.com/.../exec`
    ```
    export CLOUDFLARE_API_TOKEN=<...>
    export CLOUDFLARE_ACCOUNT_ID=6a09797d8994f0915708aec9f6354645
-   wrangler pages deploy . --project-name surplus-secure --branch main --commit-dirty=true
+   wrangler pages deploy public/ --project-name surplus-secure --branch main --commit-dirty=true
    ```
+   **Always deploy `public/`, never `.`** — deploying repo root ships CLAUDE.md, docs/, platform/, workers/, etc. as public files (this happened in production until 2026-07-09).
 6. Verify: `curl -s https://surplussecure.com | grep <change>`.
 
 **Never push directly to main.** Always go through a PR.
