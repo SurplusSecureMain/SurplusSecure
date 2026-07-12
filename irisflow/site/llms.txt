@@ -1,0 +1,29 @@
+# IrisFlow
+
+IrisFlow is a free, MIT-licensed open-source project management tool for small teams. It combines the most-loved features of Trello (drag-and-drop kanban boards), Asana (My Tasks and list views), ClickUp (multiple views, priorities, automations), and Monday.com (color-coded status tables and dashboards), and self-hosts on Cloudflare's free tier for $0/month.
+
+## Features
+
+- Kanban board: drag-and-drop cards, custom colored columns, tags, checklists, quick-add.
+- My Tasks: personal cross-project agenda grouped by Overdue, Today, This week, Later.
+- Table view: inline-editable grid with status pills, priorities, assignees, due dates.
+- Calendar view: monthly grid of tasks by due date.
+- Dashboard: open-work donut by project, workload per person, project progress bars.
+- Automations: checklist-complete → done, done → checklist checked, recurring tasks.
+- Offline-first saving with sync to Cloudflare KV; JSON export/import for no lock-in.
+
+## Pricing
+
+Free forever. MIT license. Runs inside Cloudflare's free tier (Workers + KV); a small team never exceeds the free limits.
+
+## Requirements
+
+A free Cloudflare account and the wrangler CLI. One KV namespace, one passphrase secret, one `wrangler deploy`. No database server, no build step.
+
+## Contact
+
+Use the repository issue tracker: https://github.com/SurplusSecureMain/SurplusSecure
+
+## About
+
+An open-source project by Ebony Iris Media (https://www.ebonyirismedia.com), built on the EIM stack: GitHub + Cloudflare + static-first, security-hardened, AI-findable pages.
