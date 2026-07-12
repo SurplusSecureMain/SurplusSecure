@@ -83,7 +83,7 @@ async function makeSession(env) {
 async function checkAuth(request, env) {
   if (!env.APP_PASSWORD) return true; // demo mode — set the secret before real use
   const cookie = request.headers.get('Cookie') || '';
-  const m = cookie.match(new RegExp(COOKIE + '=([^;]+)'));
+  const m = cookie.match(new RegExp('(?:^|;\\s*)' + COOKIE + '=([^;]+)'));
   if (!m) return false;
   const [expStr, sig] = m[1].split('.');
   const exp = Number(expStr);
@@ -101,7 +101,8 @@ function timingSafeEqual(a, b) {
 
 async function handleLogin(request, env) {
   if (!env.APP_PASSWORD) return redirect('/');
-  const form = await request.formData();
+  let form;
+  try { form = await request.formData(); } catch { return serveLogin(true); }
   const pw = String(form.get('password') || '');
   // Compare via HMAC so mismatched lengths don't short-circuit timing.
   const ok = timingSafeEqual(await hmacHex(env.APP_PASSWORD, pw), await hmacHex(env.APP_PASSWORD, env.APP_PASSWORD));

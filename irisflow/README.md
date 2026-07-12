@@ -69,6 +69,7 @@ One JSON document: workspace → members + projects → statuses, automations, t
 - Single workspace per deployment; deploy the Worker twice for two workspaces.
 - Shared-passphrase trust model — everyone with the passphrase can edit everything.
 - Last-writer-wins at document granularity (with conflict detection); it's a small-team tool, not Jira.
+- The revision check is advisory, not atomic: KV is eventually consistent, so two users saving in the same instant (or from different regions within KV's propagation window) can still race past the 409 guard. In practice a small team saving debounced snapshots rarely hits this; if you need hard guarantees, route writes through a Durable Object.
 
 ## License
 

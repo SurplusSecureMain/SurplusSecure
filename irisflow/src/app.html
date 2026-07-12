@@ -273,40 +273,113 @@ function doneStatus(proj){ return proj.statuses.find(s=>s.done) || proj.statuses
 function avatarHtml(m){ return m ? '<span class="avatar" style="background:'+m.color+'" title="'+esc(m.name)+'">'+esc(m.name.split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase())+'</span>' : ''; }
 function log(t, text){ t.activity.unshift({at:new Date().toISOString(), text}); t.activity=t.activity.slice(0,30); }
 
+/* ── Sanitization ──
+   Every document that enters the app (server, cache, import) passes through
+   normalize(). Ids are charset-checked (remapped consistently if hostile),
+   colors must be hex, enums are whitelisted, shapes are rebuilt — so imported
+   JSON can't inject into inline handlers/styles or brick the render. */
+function normalize(d){
+  if(!d || typeof d!=='object') d = {};
+  const HEX=/^#[0-9a-fA-F]{3,8}$/, ID=/^[a-z0-9]{1,32}$/i, DATE=/^\d{4}-\d{2}-\d{2}$/;
+  const sid = v => (typeof v==='string' && ID.test(v)) ? v : uid();
+  const col = (v,fb) => (typeof v==='string' && HEX.test(v)) ? v : fb;
+  const str = v => typeof v==='string' ? v : '';
+  const iso = v => (typeof v==='string' && !isNaN(Date.parse(v))) ? v : null;
+  const out = { name: str(d.name)||'Workspace', members:[], projects:[] };
+  const memMap = new Map();
+  (Array.isArray(d.members)?d.members:[]).forEach((m,i)=>{
+    if(!m||typeof m!=='object') return;
+    const id = sid(m.id); if(typeof m.id==='string') memMap.set(m.id,id);
+    out.members.push({id, name:str(m.name)||'Member', color:col(m.color, PALETTE[i%PALETTE.length])});
+  });
+  (Array.isArray(d.projects)?d.projects:[]).forEach((p,pi)=>{
+    if(!p||typeof p!=='object') return;
+    const statuses=[], stMap=new Map();
+    (Array.isArray(p.statuses)?p.statuses:[]).forEach((s,si)=>{
+      if(!s||typeof s!=='object') return;
+      const id=sid(s.id); if(typeof s.id==='string') stMap.set(s.id,id);
+      statuses.push({id, name:str(s.name)||'Status', color:col(s.color,PALETTE[si%PALETTE.length]), done:!!s.done});
+    });
+    if(!statuses.length) STATUS_DEFAULTS.forEach(s=>statuses.push({id:uid(), ...s}));
+    if(!statuses.some(s=>s.done)) statuses[statuses.length-1].done=true;
+    const a = (p.automations&&typeof p.automations==='object')?p.automations:{};
+    const proj={id:sid(p.id), name:str(p.name)||'Project', color:col(p.color,PALETTE[pi%PALETTE.length]), statuses,
+      automations:{checklistDone:a.checklistDone!==false, doneChecksAll:a.doneChecksAll!==false, recur:a.recur!==false}, tasks:[]};
+    (Array.isArray(p.tasks)?p.tasks:[]).forEach(t=>{
+      if(!t||typeof t!=='object'||!str(t.title)) return;
+      proj.tasks.push({
+        id:sid(t.id), title:str(t.title), desc:str(t.desc),
+        statusId: stMap.get(t.statusId) || statuses[0].id,
+        priority: PRIORITIES[t.priority]?t.priority:'normal',
+        assignees:(Array.isArray(t.assignees)?t.assignees:[]).map(x=>memMap.get(x)).filter(Boolean),
+        due:(typeof t.due==='string'&&DATE.test(t.due))?t.due:null,
+        tags:(Array.isArray(t.tags)?t.tags:[]).map(str).filter(Boolean).slice(0,20),
+        checklist:(Array.isArray(t.checklist)?t.checklist:[]).filter(c=>c&&typeof c==='object').map(c=>({id:sid(c.id), text:str(c.text), done:!!c.done})),
+        comments:(Array.isArray(t.comments)?t.comments:[]).filter(c=>c&&typeof c==='object').map(c=>({id:sid(c.id), author:memMap.get(c.author)||'', text:str(c.text), at:iso(c.at)||new Date().toISOString()})),
+        activity:(Array.isArray(t.activity)?t.activity:[]).filter(x=>x&&typeof x==='object').map(x=>({at:iso(x.at)||new Date().toISOString(), text:str(x.text)})).slice(0,30),
+        estimate:(typeof t.estimate==='number'&&isFinite(t.estimate)&&t.estimate>=0)?t.estimate:null,
+        repeat: REPEATS[t.repeat]?t.repeat:'none',
+        createdAt: iso(t.createdAt)||new Date().toISOString(),
+        completedAt: iso(t.completedAt)
+      });
+    });
+    out.projects.push(proj);
+  });
+  return out;
+}
+
 /* ── Persistence: localStorage always, KV when reachable ── */
+let dirty = false, pushing = false, pushQueued = false;
+function readCache(){
+  try{ return JSON.parse(localStorage.getItem('irisflow:cache')); }catch(e){ return null; }
+}
 async function load(){
+  const c = readCache();
   try{
     const r = await fetch('/api/data');
     if(r.ok){
       const data = await r.json();
+      // Unsynced local edits made against the same (or newer) revision win and re-push.
+      if(c && c.dirty && (c.rev||0) >= (data.rev||0)){
+        doc = normalize(c.doc); rev = data.rev||0; dirty = true; cache(); push(); return;
+      }
       rev = data.rev || 0;
-      if(data.doc){ doc = data.doc; cache(); return; }
-      doc = seed(); cache(); push(); return;
+      if(data.doc){
+        doc = normalize(data.doc); cache();
+        if(c && c.dirty) toast('Offline edits were older than the server copy and were discarded');
+        return;
+      }
+      doc = seed(); dirty = true; cache(); push(); return;
     }
     if(r.status===401){ location.href='/'; return; }
     throw new Error('http '+r.status);
   }catch(e){
     online = false;
-    const c = localStorage.getItem('irisflow:cache');
-    doc = c ? JSON.parse(c).doc : seed();
-    rev = c ? (JSON.parse(c).rev||0) : 0;
+    doc = c ? normalize(c.doc) : seed();
+    rev = c ? (c.rev||0) : 0;
+    dirty = c ? !!c.dirty : true;
   }
 }
-function cache(){ localStorage.setItem('irisflow:cache', JSON.stringify({rev, doc})); }
-function save(){ cache(); renderSync(); clearTimeout(saveTimer); saveTimer = setTimeout(push, 800); }
+function cache(){ try{ localStorage.setItem('irisflow:cache', JSON.stringify({rev, doc, dirty})); }catch(e){} }
+function save(){ dirty = true; cache(); renderSync(); clearTimeout(saveTimer); saveTimer = setTimeout(push, 800); }
 async function push(){
+  if(pushing){ pushQueued = true; return; } // serialize: a stale in-flight rev must never race a newer edit
+  pushing = true;
   try{
     const r = await fetch('/api/data', {method:'PUT', headers:{'Content-Type':'application/json'}, body: JSON.stringify({rev, doc})});
     if(r.status===409){
       const data = await r.json();
-      rev = data.rev; if(data.doc) doc = data.doc;
-      cache(); online = true; toast('Updated in another window — reloaded latest'); render(); return;
+      rev = data.rev; if(data.doc) doc = normalize(data.doc);
+      dirty = false; cache(); online = true; toast('Workspace was updated elsewhere — reloaded the latest copy'); render(); return;
     }
     if(r.status===401){ location.href='/'; return; }
     if(!r.ok) throw new Error('http '+r.status);
-    const data = await r.json(); rev = data.rev; cache();
+    const data = await r.json(); rev = data.rev;
+    if(!pushQueued) dirty = false;
+    cache();
     if(!online){ online = true; renderSync(); }
   }catch(e){ online = false; renderSync(); }
+  finally{ pushing = false; if(pushQueued){ pushQueued = false; push(); } }
 }
 function renderSync(){
   const el = $('sync'); if(!el) return;
@@ -384,11 +457,15 @@ function setStatus(proj, t, statusId, note){
     if(proj.automations.doneChecksAll && t.checklist.length){ t.checklist.forEach(c=>c.done=true); }
     if(proj.automations.recur && t.repeat!=='none' && t.due){
       const [y,m,dd] = t.due.split('-').map(Number);
-      const base = new Date(y, m-1, dd);
-      if(t.repeat==='daily') base.setDate(base.getDate()+1);
-      if(t.repeat==='weekly') base.setDate(base.getDate()+7);
-      if(t.repeat==='monthly') base.setMonth(base.getMonth()+1);
+      let base;
+      if(t.repeat==='daily'){ base = new Date(y, m-1, dd+1); }
+      else if(t.repeat==='weekly'){ base = new Date(y, m-1, dd+7); }
+      else { // monthly: clamp to the target month's last day so Jan 31 → Feb 28, not Mar 3
+        const lastDay = new Date(y, m+1, 0).getDate();
+        base = new Date(y, m, Math.min(dd, lastDay));
+      }
       proj.tasks.push({...t, id:uid(), statusId:proj.statuses[0].id, due:localDateStr(base),
+        assignees:[...t.assignees], tags:[...t.tags],
         checklist:t.checklist.map(c=>({...c, id:uid(), done:false})), comments:[], completedAt:null,
         createdAt:new Date().toISOString(), activity:[{at:new Date().toISOString(), text:'Recreated by recurring-task automation'}]});
       toast('Recurring task scheduled for '+fmtDate(localDateStr(base)));
@@ -555,7 +632,7 @@ function renderProject(){
   const tags = [...new Set(p.tasks.flatMap(t=>t.tags))].sort();
   const f = ui.filters;
   $('filters').innerHTML = '<div class="filters">' +
-    '<input type="search" placeholder="Search tasks…" value="'+esc(f.q)+'" oninput="setFilter(\'q\',this.value)">' +
+    '<input type="search" placeholder="Search tasks…" value="'+esc(f.q)+'" oninput="setFilter(\'q\',this.value,this.selectionStart)">' +
     '<select onchange="setFilter(\'assignee\',this.value)"><option value="">Everyone</option>'+doc.members.map(m=>'<option value="'+m.id+'"'+(f.assignee===m.id?' selected':'')+'>'+esc(m.name)+'</option>').join('')+'</select>' +
     '<select onchange="setFilter(\'priority\',this.value)"><option value="">Any priority</option>'+Object.entries(PRIORITIES).map(([k,v])=>'<option value="'+k+'"'+(f.priority===k?' selected':'')+'>'+v.label+'</option>').join('')+'</select>' +
     '<select onchange="setFilter(\'tag\',this.value)"><option value="">Any tag</option>'+tags.map(g=>'<option'+(f.tag===g?' selected':'')+'>'+esc(g)+'</option>').join('')+'</select>' +
@@ -754,8 +831,10 @@ function cmDel(pid,tid,cid){ const p=project(pid); const t=p.tasks.find(x=>x.id=
 function delTask(pid,tid){ const p=project(pid); if(!confirm('Delete this task permanently?'))return; p.tasks=p.tasks.filter(t=>t.id!==tid); save(); closeModal(); render(); }
 function quickDone(pid,tid){
   const p=project(pid); const t=p.tasks.find(x=>x.id===tid);
-  if(isDone(t,p)) setStatus(p,t,p.statuses[0].id,'Reopened');
-  else setStatus(p,t,doneStatus(p).id);
+  if(isDone(t,p)){
+    const reopenTo = p.statuses.find(s=>!s.done) || p.statuses[0];
+    setStatus(p,t,reopenTo.id,'Reopened');
+  } else setStatus(p,t,doneStatus(p).id);
   render();
 }
 
@@ -796,9 +875,12 @@ function s_done(pid,sid){ project(pid).statuses.forEach(s=>s.done=(s.id===sid));
 function s_del(pid,sid){
   const p=project(pid);
   if(p.statuses.length<=1) return;
+  const removed = p.statuses.find(s=>s.id===sid);
   const fallback = p.statuses.find(s=>s.id!==sid);
-  p.tasks.forEach(t=>{ if(t.statusId===sid) t.statusId=fallback.id; });
+  p.tasks.forEach(t=>{ if(t.statusId===sid){ t.statusId=fallback.id; if(removed.done) t.completedAt=null; } });
   p.statuses=p.statuses.filter(s=>s.id!==sid);
+  // A project must always have a done status, or completion silently breaks.
+  if(!p.statuses.some(s=>s.done)) p.statuses[p.statuses.length-1].done=true;
   save(); render(); openProjectSettings(pid);
 }
 function addStatusPrompt(pid){
@@ -846,9 +928,9 @@ function importJson(file){
   r.onload = () => {
     try{
       const d = JSON.parse(r.result);
-      if(!d.projects || !d.members) throw new Error('not an IrisFlow export');
-      if(!confirm('Replace the current workspace with "'+(d.name||'imported')+'"?')) return;
-      doc = d; save(); closeModal(); render(); toast('Workspace imported');
+      if(!Array.isArray(d.projects) || !Array.isArray(d.members)) throw new Error('not an IrisFlow export');
+      if(!confirm('Replace the current workspace with "'+(typeof d.name==='string'?d.name:'imported')+'"?')) return;
+      doc = normalize(d); save(); closeModal(); render(); toast('Workspace imported');
     }catch(e){ toast('Import failed: '+e.message); }
   };
   r.readAsText(file);
@@ -877,7 +959,7 @@ function go(view, pid){
   render();
 }
 function setProjView(v){ ui.projView=v; render(); }
-function setFilter(k,v){ ui.filters[k]=v; renderMain(); if(k==='q'){ const el=document.querySelector('.filters input[type=search]'); if(el){ el.focus(); el.setSelectionRange(el.value.length, el.value.length); } } }
+function setFilter(k,v,caret){ ui.filters[k]=v; renderMain(); if(k==='q'){ const el=document.querySelector('.filters input[type=search]'); if(el){ el.focus(); const pos=(typeof caret==='number')?caret:el.value.length; el.setSelectionRange(pos,pos); } } }
 function clearFilters(){ ui.filters={q:'',assignee:'',priority:'',tag:''}; render(); }
 function setMe(v){ me=v; if(v)localStorage.setItem('irisflow:me',v); else localStorage.removeItem('irisflow:me'); render(); }
 
