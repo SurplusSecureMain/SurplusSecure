@@ -1,0 +1,26 @@
+# IrisFlow — open-source work OS on the EIM stack (Cloudflare Worker + KV)
+#
+# Setup:
+#   1. wrangler kv namespace create IRISFLOW_DATA
+#      → paste the returned id below.
+#   2. Set account_id to YOUR Cloudflare account (or export CLOUDFLARE_ACCOUNT_ID).
+#   3. echo '<a strong passphrase>' | wrangler secret put APP_PASSWORD
+#   4. wrangler deploy
+#
+# With no APP_PASSWORD secret set, the app runs in open demo mode — set the
+# secret before putting real work in it.
+
+name = "irisflow"
+main = "src/worker.js"
+compatibility_date = "2026-07-01"
+
+# account_id = "YOUR_CLOUDFLARE_ACCOUNT_ID"
+
+kv_namespaces = [
+  { binding = "DATA", id = "YOUR_KV_NAMESPACE_ID" }
+]
+
+# Lets the Worker import the single-file app as text (zero build step).
+rules = [
+  { type = "Text", globs = ["**/*.html"], fallthrough = true }
+]

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>IrisFlow — Free Open-Source Project Management on Cloudflare</title>
+<meta name="description" content="IrisFlow is a free, open-source project management tool combining the best of Trello boards, Asana My Tasks, ClickUp views, and Monday tables — self-hosted on Cloudflare's free tier for $0/month.">
+<link rel="canonical" href="https://irisflow.pages.dev/">
+<meta property="og:title" content="IrisFlow — Free Open-Source Project Management on Cloudflare">
+<meta property="og:description" content="Kanban boards, My Tasks, editable tables, calendar, dashboards, and automations. One HTML file + one Worker. $0/month on Cloudflare's free tier.">
+<meta property="og:url" content="https://irisflow.pages.dev/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="IrisFlow">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IrisFlow — Free Open-Source Project Management on Cloudflare">
+<meta name="twitter:description" content="The best-loved features of Trello, Asana, ClickUp, and Monday — open source, self-hosted, $0/month.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "IrisFlow",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "Free, open-source project management tool that combines Trello-style kanban boards, Asana-style My Tasks, ClickUp-style multiple views and automations, and Monday-style tables and dashboards. Self-hosted on Cloudflare Workers + KV.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "license": "https://opensource.org/license/mit",
+  "creator": { "@type": "Organization", "name": "Ebony Iris Media" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is IrisFlow really free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. IrisFlow is MIT-licensed open source, and it runs entirely on Cloudflare's free tier (Workers + KV). A typical small team stays comfortably inside the free limits, so hosting costs $0/month." } },
+    { "@type": "Question", "name": "What do I need to run IrisFlow?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A free Cloudflare account and the wrangler CLI. Create one KV namespace, set a passphrase secret, and run wrangler deploy. There is no database server, no Node runtime in production, and no build step." } },
+    { "@type": "Question", "name": "Which features come from which tool?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Drag-and-drop kanban boards with labels and checklists come from Trello. My Tasks and grouped list views come from Asana. Multiple views per project, priority flags, and automations come from ClickUp. Color-coded status pills, the editable table view, and dashboards come from Monday.com." } },
+    { "@type": "Question", "name": "Where does my data live?",
+      "acceptedAnswer": { "@type": "Answer", "text": "In a single JSON document inside your own Cloudflare KV namespace, under your own account. You can export the full workspace as JSON at any time — there is no vendor lock-in." } },
+    { "@type": "Question", "name": "Does IrisFlow support teams?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, for small teams. The workspace is protected by a shared passphrase, and members pick who they are for assignments, comments, and My Tasks. It uses optimistic revision checks so two people editing at once never silently overwrite each other. It is designed for teams of roughly 1 to 15 people." } }
+  ]
+}
+</script>
+<style>
+:root{
+  --page:#f9f9f7;--surface:#ffffff;--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;
+  --grid:#e1e0d9;--accent:#4a3aa7;--accent-ink:#fff;--blue:#2a78d6;--good:#0ca30c;
+}
+@media (prefers-color-scheme: dark){
+  :root{--page:#0d0d0d;--surface:#1a1a19;--ink:#fff;--ink2:#c3c2b7;--grid:#2c2c2a;--accent:#9085e9;--accent-ink:#151321;--blue:#3987e5}
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--page);color:var(--ink);line-height:1.6}
+.wrap{max-width:880px;margin:0 auto;padding:0 1.25rem}
+header.hero{padding:4.5rem 0 3rem;text-align:center}
+.mark{width:56px;height:56px;border-radius:14px;background:var(--accent);color:var(--accent-ink);display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:1.4rem;margin-bottom:1rem}
+h1{font-size:clamp(1.8rem,4.5vw,2.7rem);line-height:1.15;letter-spacing:-.5px}
+.sub{color:var(--ink2);font-size:1.05rem;max-width:640px;margin:1rem auto 1.75rem}
+.cta{display:inline-block;background:var(--accent);color:var(--accent-ink);font-weight:700;padding:.8rem 1.6rem;border-radius:10px;text-decoration:none}
+.cta.ghost{background:none;color:var(--accent);border:1px solid var(--accent);margin-left:.6rem}
+section{padding:2.25rem 0;border-top:1px solid var(--grid)}
+h2{font-size:1.35rem;margin-bottom:1rem}
+p+p{margin-top:.75rem}
+table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:.75rem}
+th,td{text-align:left;padding:.6rem .7rem;border-bottom:1px solid var(--grid);vertical-align:top}
+th{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)}
+.table-scroll{overflow-x:auto}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.9rem;margin-top:1rem}
+.card{background:var(--surface);border:1px solid var(--grid);border-radius:12px;padding:1.1rem}
+.card h3{font-size:.95rem;margin-bottom:.35rem}
+.card p{font-size:.85rem;color:var(--ink2)}
+.price{font-size:3rem;font-weight:800;color:var(--good)}
+dl dt{font-weight:700;margin-top:1.1rem}
+dl dd{color:var(--ink2);margin-left:0;margin-top:.25rem}
+pre{background:var(--surface);border:1px solid var(--grid);border-radius:10px;padding:1rem;overflow-x:auto;font-size:.82rem;margin-top:.75rem}
+footer{padding:2.5rem 0;color:var(--muted);font-size:.85rem;text-align:center;border-top:1px solid var(--grid);margin-top:2rem}
+a{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="mark">IF</div>
+    <h1>The best of Trello, Asana, ClickUp &amp; Monday.<br>Open source. $0/month.</h1>
+    <p class="sub">IrisFlow is a free, open-source project management tool for small teams. It self-hosts on Cloudflare's free tier — one Worker, one KV namespace, one HTML file. No database server, no build step, no subscription.</p>
+    <a class="cta" href="https://github.com/SurplusSecureMain/SurplusSecure/tree/main/irisflow">Get the code</a>
+    <a class="cta ghost" href="#deploy">Deploy in 5 minutes</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section id="features">
+  <h2>The features people actually pay for — from each tool</h2>
+  <p>Each of the big four project management apps has one thing its customers love most. IrisFlow implements exactly those, and skips the enterprise bloat.</p>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Borrowed from</th><th>What you get in IrisFlow</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Trello</strong></td><td>Drag-and-drop kanban boards, cards with tags, checklists with progress, due-date chips, quick-add per column.</td></tr>
+      <tr><td><strong>Asana</strong></td><td>My Tasks across every project (Overdue / Today / This week / Later), grouped list view, one-click complete circles, assignees and comments.</td></tr>
+      <tr><td><strong>ClickUp</strong></td><td>Four views per project (Board, List, Table, Calendar), priority flags (Urgent → Low), time estimates, recurring tasks, and toggleable automations.</td></tr>
+      <tr><td><strong>Monday.com</strong></td><td>Color-coded status pills you customize per project, an inline-editable table view, and a dashboard with workload and progress charts.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards">
+    <div class="card"><h3>Automations built in</h3><p>Checklist done → task done. Done → checklist checked. Recurring tasks reschedule themselves. Toggle each per project.</p></div>
+    <div class="card"><h3>Offline-friendly</h3><p>Every change saves locally first, then syncs to KV. Lose your connection and keep working; it catches up when you're back.</p></div>
+    <div class="card"><h3>No lock-in</h3><p>Your whole workspace is one JSON document in your own Cloudflare account. Export or import it with one click.</p></div>
+    <div class="card"><h3>Private by design</h3><p>Passphrase-gated, HMAC-signed sessions, strict security headers, robots blocked. Zero third-party requests — not even fonts.</p></div>
+  </div>
+</section>
+
+<section id="pricing">
+  <h2>Pricing</h2>
+  <p class="price">$0</p>
+  <p>Forever. IrisFlow is MIT-licensed and runs inside Cloudflare's free tier: Workers gives you 100,000 requests/day and KV gives you 1,000 writes/day free — far more than a small team's task tracker will ever use. The only thing you bring is a free Cloudflare account.</p>
+</section>
+
+<section id="deploy">
+  <h2>Deploy in five minutes</h2>
+  <pre><code>git clone https://github.com/SurplusSecureMain/SurplusSecure
+cd SurplusSecure/irisflow
+npx wrangler kv namespace create IRISFLOW_DATA   # paste id into wrangler.toml
+echo 'your-strong-passphrase' | npx wrangler secret put APP_PASSWORD
+npx wrangler deploy</code></pre>
+  <p>That's it — your team's work OS is live at <code>irisflow.&lt;your-subdomain&gt;.workers.dev</code>, on hardware you don't manage, at a price you don't pay.</p>
+</section>
+
+<section id="faq">
+  <h2>Frequently asked questions</h2>
+  <dl>
+    <dt>Is IrisFlow really free?</dt>
+    <dd>Yes. It's MIT-licensed open source and runs entirely on Cloudflare's free tier, so hosting costs $0/month for typical small-team usage.</dd>
+    <dt>What do I need to run it?</dt>
+    <dd>A free Cloudflare account and the wrangler CLI. One KV namespace, one secret, one deploy command. No database server, no build step.</dd>
+    <dt>Where does my data live?</dt>
+    <dd>In a single JSON document in your own Cloudflare KV namespace. Export the full workspace as JSON any time.</dd>
+    <dt>Does it support teams?</dt>
+    <dd>Yes — designed for roughly 1 to 15 people behind a shared passphrase, with per-member assignments, comments, and My Tasks. Optimistic revision checks stop two people from silently overwriting each other.</dd>
+    <dt>What is the EIM stack?</dt>
+    <dd>GitHub for source and history, Cloudflare for hosting and data, and static-first pages hardened with strict security headers and AI-crawler-friendly metadata (llms.txt, JSON-LD, sitemap). It's how Ebony Iris Media ships every site.</dd>
+  </dl>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>IrisFlow — an <a href="https://www.ebonyirismedia.com">Ebony Iris Media</a> open-source project. MIT License.</p>
+  </div>
+</footer>
+
+</body>
+</html>
