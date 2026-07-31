@@ -1,0 +1,90 @@
+# Surplus Secure — https://surplussecure.com
+#
+# Citation crawlers (on-demand fetch for AI search and answer engines).
+# These drive AI Answer Engine visibility. All allowed.
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ChatGPT-User/2.0
+Allow: /
+
+User-agent: ChatGPT-User/3.0
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: Google-NotebookLM
+Allow: /
+
+# Training crawlers (bulk collection for model training).
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# anthropic-ai and claude-web are deprecated by Anthropic in favor of ClaudeBot;
+# retained defensively since legacy UAs still appear in logs.
+
+User-agent: claude-web
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Google-CloudVertexBot
+Allow: /
+
+# Default rule for all other crawlers.
+
+User-agent: *
+Disallow: /admin/
+Disallow: /staging/
+Disallow: /drafts/
+
+Sitemap: https://surplussecure.com/sitemap.xml

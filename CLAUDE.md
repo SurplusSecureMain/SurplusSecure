@@ -22,10 +22,12 @@ The legacy clone at `~/SurplusSecure-work/` is deprecated — kept for historica
 
 - **`public/` is the ONLY directory that gets deployed.** `wrangler pages deploy public/` uploads exactly what's in that folder — nothing else in the repo (CLAUDE.md, docs/, platform/, county-database/, workers/, brand-assets/, tools/, admin-preview/) is ever public. Before 2026-07-09 the ship ritual deployed the repo root (`wrangler pages deploy .`), which silently served all of those — including the admin dashboard's auth source and this file — live at surplussecure.com. If you ever add a new top-level file/folder that should be public, it has to be added inside `public/`, not the repo root.
 - `public/index.html` — entire site, inline CSS + JS.
-- `public/hero-video.mp4` — 960×540 H.264 + AAC stereo, 82s, ~9.4 MB. Click-to-play (no autoplay).
-- `public/hero-poster.webp` — 1920×1103 16:9, ~60 KB.
+- `public/hero-video.mp4` — H.264 + AAC stereo, 82s, **16.1 MB**, faststart (`moov` before `mdat`). Click-to-play (no autoplay).
+- `public/hero-poster.webp` — 1080×1080 square, ~64 KB.
 - `public/robots.txt`, `public/llms.txt`, `public/sitemap.xml`, `public/_headers` — AEO Site Protocol + security headers.
-- `public/images/`, `public/fonts/` — self-hosted images and fonts (no third-party font CDN).
+- `public/og-image.png` — 1200×630 social share card. Regenerate from `tools/` if the hero headline changes.
+- `public/favicon-32.png`, `public/apple-touch-icon.png`, `public/icon.svg` — copied from `brand-assets/`. The SVG must stay free of the `@import` of Google Fonts that `brand-assets/surplus-secure-icon.svg` still carries.
+- `public/images/`, `public/fonts/` — self-hosted images and fonts (no third-party font CDN). Fonts are DM Serif Display (400 + italic) and Source Sans 3 (variable 300–700, roman + italic), latin + latin-ext subsets, served with `font-display: swap`.
 - `workers/ss-form/` — Cloudflare Worker (form relay), `account_id` pinned to Kelli's. Deployed separately via `wrangler deploy` from its own directory — unaffected by the `public/` restructure.
 - `platform/` — admin dashboard + KV API Worker (deployed to Kelli account as `surplus-secure-platform`; not bound to a public hostname yet).
 - `county-database/` — 83-county Michigan data Worker (deployed to Kelli account as `surplus-secure`; not bound to a public hostname yet).
@@ -94,5 +96,9 @@ curl -s -X POST https://ss-form.kelli-6a0.workers.dev \
 - **No black bars / no fake background padding** on the hero video.
 - **`tel:` and `sms:` CTAs** are split (`Call (734) 215-5540` vs `Text (734) 215-5540`) — don't merge them back into a single "Call or Text" tel: link; that confused users.
 - **Honeypot field `website`** — silently succeed if filled. Don't add visible validation.
+- **`content-visibility: auto` on page sections.** Do not reintroduce it. Combined with `scroll-behavior: smooth` it broke every in-page anchor below the fold — the browser computed the scroll target from the `contain-intrinsic-size` estimate, then real content rendered mid-animation and moved the destination. "Why Us" landed 211px off and "FAQ" scrolled to the bottom of the page.
+- **No third-party runtime requests.** Fonts are self-hosted; there is no analytics, no pixel, no CDN. A page load should make zero requests off `surplussecure.com`. The `_headers` CSP enforces this — adding an external asset means editing the CSP too.
+- **Gold as text on light backgrounds.** `--gold` (#C8A456) is only ~2.2:1 on white/cream. Use `--gold-text` for body-size text and `--gold-strong` for large text and UI glyphs; both flip automatically in dark mode. `--gold` itself is for fills, borders, and text on the dark navy sections.
+- **Self-serving review schema.** `aggregateRating` and on-site `Review` nodes were removed — Google's rich-result policy disallows reviews a business hosts about itself, and they risk a manual action. The visible testimonials stay; don't re-add the markup.
 - **Cloudflare account drift** — `wrangler.toml` `account_id` is repo-bound to Kelli's account in every Worker dir. Don't change it.
 - **Pages custom domain CNAMEs** — must point to `surplus-secure-2bp.pages.dev` (the account-specific URL), NOT `surplus-secure.pages.dev` (the shared subdomain name). Pointing at the shared name causes routing ambiguity if any other CF account ever creates a project of the same name.
