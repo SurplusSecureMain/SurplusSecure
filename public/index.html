@@ -4,11 +4,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Surplus Secure | Michigan Tax Foreclosure Surplus Fund Recovery — Ann Arbor Attorney</title>
-<meta name="description" content="Surplus Secure helps Michigan homeowners recover surplus funds after tax foreclosure. Led by attorney Kelli Meeks with 40 years of experience. No upfront cost — we only get paid when you get paid. Call or text (734) 215-5540 for a free consultation.">
+<title>Surplus Secure | Michigan Tax Foreclosure Fund Recovery</title>
+<meta name="description" content="Surplus Secure helps Michigan homeowners recover surplus funds after tax foreclosure. Attorney-led, no upfront cost. Call or text (734) 215-5540.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="admin-api" content=""><!-- Set to https://admin.surplussecure.com after deploy -->
+<meta name="theme-color" content="#1E3352">
 <link rel="canonical" href="https://surplussecure.com/">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/svg+xml" href="/icon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<!-- Turnstile's api.js is injected by the contact-form script, and only when a
+     real site key is configured. Loading it unconditionally from <head> meant
+     an unconfigured (placeholder) key still cost every visitor a third-party
+     request, and still hard-broke the form. See the contact-form script. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Surplus Secure">
 <meta property="og:title" content="Surplus Secure — Recover Your Money After Tax Foreclosure in Michigan">
@@ -33,7 +41,7 @@
     "description": "Surplus Secure is a Michigan legal service that helps former homeowners recover surplus funds after tax foreclosure sales. Led by attorney Kelli Meeks with 40 years of real estate law experience.",
     "url": "https://surplussecure.com",
     "telephone": "+1-734-215-5540",
-    "email": "surplussecure@gmail.com",
+    "email": "kelli@surplussecure.com",
     "priceRange": "No upfront cost — contingency fee",
     "address": {
       "@type": "PostalAddress",
@@ -55,8 +63,7 @@
       "contactType": "customer service",
       "availableLanguage": "English",
       "areaServed": "Michigan"
-    },
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "bestRating": "5", "ratingCount": "2" }
+    }
   },
   {
     "@context": "https://schema.org",
@@ -70,6 +77,15 @@
   },
   {
     "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://surplussecure.com/#website",
+    "name": "Surplus Secure",
+    "url": "https://surplussecure.com/",
+    "publisher": { "@id": "https://surplussecure.com/#legal-service" },
+    "inLanguage": "en-US"
+  },
+  {
+    "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "What are surplus funds after a tax foreclosure?", "acceptedAnswer": { "@type": "Answer", "text": "Surplus funds are the extra money left over when a county sells your foreclosed property at auction for more than what you owed in taxes, penalties, fees, and a 5% county commission. For example, if your home sold for $100,000 and you owed $25,000, the remaining $75,000 is surplus that legally belongs to you." } },
@@ -79,19 +95,88 @@
       { "@type": "Question", "name": "How much does it cost to hire Surplus Secure?", "acceptedAnswer": { "@type": "Answer", "text": "There is no upfront cost. Surplus Secure operates on a contingency fee basis — they only get paid a percentage of the surplus funds they successfully recover." } },
       { "@type": "Question", "name": "Do I need a lawyer to claim surplus funds in Michigan?", "acceptedAnswer": { "@type": "Answer", "text": "While not legally required, the surplus recovery process involves proper legal filings, court approvals, and strict deadline compliance. A single mistake can result in your claim being denied." } }
     ]
-  },
-  { "@context": "https://schema.org", "@type": "Review", "author": { "@type": "Person", "name": "Dennis A." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "itemReviewed": { "@id": "https://surplussecure.com/#legal-service" }, "reviewBody": "Kelli was my guardian angel. She helped me understand the process, protected my equity, and kept me informed every step of the way." },
-  { "@context": "https://schema.org", "@type": "Review", "author": { "@type": "Person", "name": "Janice S." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "itemReviewed": { "@id": "https://surplussecure.com/#legal-service" }, "reviewBody": "Kelli is an extraordinary lawyer. Her tenacious drive for justice helped me secure a significant amount of money after a long foreclosure nightmare." }
+  }
 ]
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/source-sans-3-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/dm-serif-display-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  /* ───── SELF-HOSTED FONTS (no third-party CDN) ───── */
+  @font-face {
+    font-family: 'DM Serif Display';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/dm-serif-display-400-italic-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'DM Serif Display';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/dm-serif-display-400-italic-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'DM Serif Display';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/dm-serif-display-400-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'DM Serif Display';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/dm-serif-display-400-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Source Sans 3';
+    font-style: italic;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url('fonts/source-sans-3-var-italic-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'Source Sans 3';
+    font-style: italic;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url('fonts/source-sans-3-var-italic-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Source Sans 3';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url('fonts/source-sans-3-var-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'Source Sans 3';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url('fonts/source-sans-3-var-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
   :root {
     --gold: #C8A456;
     --gold-light: #E8D5A0;
     --gold-glow: rgba(200, 164, 86, 0.15);
+    /* --gold on a light surface is only ~2.2:1. These two are the accessible
+       gold ramps for TEXT on light backgrounds; --gold stays for fills,
+       borders, and text on the dark navy sections. Both are redefined in the
+       dark-mode block, so every consumer flips automatically. */
+    --gold-text: #866A2C;   /* >=4.5:1 on white/cream — body-size text */
+    --gold-strong: #AA8537; /* >=3:1 on white/cream — large text + UI glyphs */
     --navy: #243A5C;
     --navy-deep: #1E3352;
     --navy-mid: #243550;
@@ -101,7 +186,7 @@
     --white: #FFFFFF;
     --text-dark: #1A1A2E;
     --text-body: #3A3A4A;
-    --text-muted: #6B7280;
+    --text-muted: #686E7C;
     --success: #2D8A56;
     --radius: 12px;
     --radius-lg: 20px;
@@ -213,7 +298,7 @@
     font-size: 1.15rem;
     color: var(--navy);
   }
-  .nav-logo-text span { color: var(--gold); }
+  .nav-logo-text span { color: var(--gold-text); }
 
   .nav-links {
     display: none;
@@ -228,7 +313,7 @@
     font-weight: 500;
     transition: color 0.2s;
   }
-  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover { color: var(--gold-text); }
 
   .nav-cta {
     display: inline-flex;
@@ -275,11 +360,15 @@
   .mobile-menu-btn {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 5px;
+    width: 44px;   /* 32x24 was under the 44x44 touch-target guidance */
+    height: 44px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 4px;
+    padding: 0;
   }
   .mobile-menu-btn span {
     width: 24px;
@@ -601,7 +690,7 @@
     color: var(--navy);
     margin-bottom: 0.25rem;
   }
-  .stat-number span { color: var(--gold); }
+  .stat-number span { color: var(--gold-strong); }
   .stat-label {
     font-size: 0.8rem;
     color: var(--text-muted);
@@ -635,7 +724,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--gold);
+    color: var(--gold-text);
     margin-bottom: 0.75rem;
   }
   .section-label::before {
@@ -708,6 +797,9 @@
   .process { background: var(--navy-deep); }
   .process .section-title { color: var(--white); }
   .process .section-desc { color: rgba(255,255,255,0.6); }
+  /* This section is dark in both colour schemes, so it wants the original
+     bright gold rather than the darkened light-surface ramp. */
+  .process .section-label { color: var(--gold); }
 
   .process-steps {
     display: grid;
@@ -819,7 +911,7 @@
     margin-bottom: 0.25rem;
   }
   .attorney-role {
-    color: var(--gold);
+    color: var(--gold-text);
     font-weight: 600;
     font-size: 0.9rem;
     text-transform: uppercase;
@@ -865,7 +957,7 @@
     line-height: 1;
   }
   .testimonial-stars {
-    color: var(--gold);
+    color: var(--gold-text);
     font-size: 0.85rem;
     letter-spacing: 2px;
     margin-bottom: 1rem;
@@ -911,7 +1003,7 @@
     line-height: 1.5;
     transition: color 0.2s;
   }
-  .faq-question:hover { color: var(--gold); }
+  .faq-question:hover { color: var(--gold-text); }
   .faq-question::after {
     content: '+';
     position: absolute;
@@ -920,7 +1012,7 @@
     transform: translateY(-50%);
     font-size: 1.5rem;
     font-weight: 300;
-    color: var(--gold);
+    color: var(--gold-strong);
     transition: transform 0.3s;
   }
   .faq-item.active .faq-question::after {
@@ -929,11 +1021,18 @@
   .faq-answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease;
+    /* `visibility: hidden` is what actually removes the collapsed answer from
+       the accessibility tree — max-height:0 alone leaves all seven answers
+       being read aloud by screen readers. Delaying it until the collapse
+       animation finishes keeps the transition looking the same. */
+    visibility: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease, visibility 0s linear 0.4s;
   }
   .faq-item.active .faq-answer {
     max-height: 300px;
     padding-bottom: 1.25rem;
+    visibility: visible;
+    transition: max-height 0.4s ease, padding 0.4s ease, visibility 0s;
   }
   .faq-answer p {
     font-size: 0.95rem;
@@ -1014,7 +1113,7 @@
     font-weight: 600;
     transition: color 0.2s;
   }
-  .contact-item a:hover { color: var(--gold); }
+  .contact-item a:hover { color: var(--gold-text); }
   .contact-item-label {
     font-size: 0.75rem;
     text-transform: uppercase;
@@ -1162,6 +1261,10 @@
       --cream: #0D1820;
       --cream-warm: #121F2B;
       --white: #162330;
+      /* Flip the light-surface gold ramps back to a light gold — every
+         selector that uses them inverts automatically. */
+      --gold-text: #E8D5A0;
+      --gold-strong: #E8D5A0;
       --text-dark: #E0DAD0;
       --text-body: #C0CAD4;
       --text-muted: #8898A8;
@@ -1197,8 +1300,10 @@
     .nav-text-cta { background: rgba(200,164,86,0.08); color: #D4C9B0 !important; border-color: rgba(200,164,86,0.2); }
     .nav-text-cta:hover { background: rgba(200,164,86,0.15); border-color: var(--gold); }
     .mobile-menu-btn span { background: #D4C9B0; }
-    /* Fix dark-on-dark: elements using var(--navy) for text */
-    .section-label { color: #C8A456 !important; }
+    /* Fix dark-on-dark: elements using var(--navy) for text.
+       .testimonial-author was #243A5C on a #1A2A3C card — 1.27:1, the client
+       names were effectively invisible. */
+    .testimonial-author { color: #D4C9B0; }
     /* Fix dark-on-dark: elements using var(--white) for text (--white becomes a dark surface color here) */
     .hero h1, .process .section-title, .cta-banner h2, .footer-logo { color: #D4C9B0; }
     .form-group label { color: #D4C9B0; }
@@ -1206,8 +1311,6 @@
     .stat-label { color: #8898A8; }
     .about-card h3 { color: #D4C9B0; }
     .about-card p, .why-card p, .testimonial-card p { color: #C0CAD4; }
-    .process-step-num { color: #C8A456; }
-    .process-step h4 { color: #D4C9B0; }
     .process-step p { color: #C0CAD4; }
     .faq-answer { color: #C0CAD4; }
     .btn-outline { color: #D4C9B0 !important; border-color: rgba(200,164,86,0.3); }
@@ -1249,6 +1352,42 @@
   }
   .skip-link:focus { top: 1rem; }
 
+  /* ───── CONSENT BANNER ───── */
+  .consent-banner {
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 9000;
+    max-width: 640px;
+    margin: 0 auto;
+    background: var(--navy-deep);
+    color: rgba(255,255,255,0.88);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-elevated);
+    padding: 1rem 1.25rem;
+    display: none;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+  .consent-banner.visible { display: flex; }
+  .consent-banner p { margin: 0; flex: 1 1 320px; }
+  .consent-banner button {
+    background: var(--gold);
+    color: var(--navy-deep);
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1.25rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    flex: 0 0 auto;
+  }
+  .consent-banner button:hover { background: var(--gold-light); }
+
   :focus-visible {
     outline: 3px solid var(--gold);
     outline-offset: 3px;
@@ -1256,11 +1395,14 @@
   }
   :focus:not(:focus-visible) { outline: none; }
 
-  /* ───── PERFORMANCE ───── */
-  .process, .why-us, .attorney, .testimonials, .contact {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 600px;
-  }
+  /* ───── PERFORMANCE ─────
+     NOTE: do not reintroduce `content-visibility: auto` on these sections.
+     Combined with `scroll-behavior: smooth` it broke every in-page anchor
+     below the fold: the browser computes the scroll target from the
+     contain-intrinsic-size estimate, then the real content renders mid-
+     animation and shifts the destination. "Why Us" landed 211px off and
+     "FAQ" scrolled to the bottom of the page. The whole document is ~80KB,
+     so skipping offscreen rendering bought nothing measurable. */
   /* ───── EXIT INTENT POPUP ───── */
   .exit-overlay {
     position: fixed;
@@ -1290,12 +1432,22 @@
     text-align: center;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Deliberately NOT `transition: all`. With `all`, visibility stays
+       computed-hidden for the first frame after .active is added, and
+       .focus() on a visibility:hidden element is a no-op — which silently
+       broke moving focus into the dialog. Opening flips visibility at 0s;
+       closing delays it until the fade finishes. */
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0s linear 0.35s;
   }
   .exit-popup.active {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, -50%) scale(1);
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0s;
   }
   .exit-popup-close {
     position: absolute;
@@ -1351,21 +1503,42 @@
     margin-top: 1rem;
     font-style: italic;
   }
-  @media (prefers-color-scheme: dark) {
-    .exit-popup { background: #1A2A3C; }
-    .exit-popup h3 { color: #D4C9B0; }
-    .exit-popup p { color: #C0CAD4; }
-    .exit-popup-note { color: #8898A8; }
-    .exit-popup-close { color: #6b7a96; }
-    .exit-popup-close:hover { color: #D4C9B0; }
-    .exit-popup .btn-outline { color: #D4C9B0; border-color: rgba(200,164,86,0.3); }
-  }
+  /* (Exit-popup dark-mode rules live in the main dark-mode block above; this
+     duplicate second copy was removed.) */
 </style>
+
+<noscript><style>
+  /* Scroll-reveal and the FAQ accordion are JS-driven. Without this, a
+     visitor with JS disabled sees a near-blank page: every section heading,
+     card, testimonial and the contact form all sit at opacity:0 forever. */
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .faq-answer { max-height: none !important; visibility: visible !important; padding-bottom: 1.25rem; }
+  .faq-question::after { content: '' !important; }
+</style></noscript>
 
 </head>
 <body>
 
 <a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="consent-banner" id="consentBanner" role="region" aria-label="Cookie and privacy notice">
+  <p>This site sets no tracking cookies and uses no analytics. Submitting the contact form runs a Cloudflare Turnstile spam check, which may set a functional cookie. See our <a href="/privacy.html" style="color:var(--gold-light);">Privacy Policy</a>.</p>
+  <button type="button" id="consentBannerOk">Got it</button>
+</div>
+<script>
+  (function () {
+    var KEY = 'ssConsentAcknowledged';
+    var banner = document.getElementById('consentBanner');
+    if (!banner) return;
+    if (!sessionStorage.getItem(KEY)) {
+      banner.classList.add('visible');
+    }
+    document.getElementById('consentBannerOk').addEventListener('click', function () {
+      sessionStorage.setItem(KEY, '1');
+      banner.classList.remove('visible');
+    });
+  })();
+</script>
 
 <!-- NAV -->
 
@@ -1417,7 +1590,7 @@
     </div>
     <div class="hero-media">
       <button type="button" class="hero-video-trigger" id="heroVideoTrigger" aria-label="Play introduction video from attorney Kelli Meeks">
-        <img class="hero-video-poster" src="hero-poster.webp" alt="" width="1080" height="1080" fetchpriority="high" decoding="async">
+        <img class="hero-video-poster" src="hero-poster.webp" alt="Attorney Kelli Meeks introduces Surplus Secure — tap to play her welcome video" width="1080" height="1080" fetchpriority="high" decoding="async">
         <span class="hero-video-play" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="28" height="28"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
         </span>
@@ -1478,6 +1651,11 @@
         <p style="font-size:0.82rem;color:var(--text-muted);margin:-0.25rem 0 1rem;font-style:italic;">Phone or email — whichever you prefer. We just need a way to reach you.</p>
         <!-- Honeypot -->
         <div style="position:absolute;left:-9999px;" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
+        <!-- Spam check. Stays hidden and inert until a real site key is set
+             below (search TURNSTILE_SITEKEY); the honeypot above runs either
+             way. Never hard-gate submission on this: a dead widget means a
+             dead contact form, which is the only conversion path on the site. -->
+        <div id="ssCaptcha" class="cf-turnstile" data-theme="auto" style="margin-bottom:1rem;display:none;"></div>
         <button type="submit" class="form-submit" id="ssSubmitBtn">Get in Touch</button>
         <div id="ssFormMsg" role="status" aria-live="polite" style="display:none;margin-top:0.75rem;padding:0.75rem 1rem;border-radius:8px;font-size:0.9rem;line-height:1.5;"></div>
       </form>
@@ -1657,44 +1835,44 @@
     </div>
     <div class="faq-list" style="margin-left:auto;margin-right:auto;">
       <div class="faq-item reveal">
-        <button class="faq-question" aria-expanded="false">What is surplus money?</button>
-        <div class="faq-answer">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">What is surplus money?</button>
+        <div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1">
           <p>Surplus is the extra money left over when your property sells at auction for more than you owed in taxes and fees. For example, if your home sold for $100,000 and you owed $25,000 in taxes and fees (including a 5% county commission), the remaining $75,000 belongs to you.</p>
         </div>
       </div>
       <div class="faq-item reveal">
-        <button class="faq-question" aria-expanded="false">Who can claim these funds?</button>
-        <div class="faq-answer">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">Who can claim these funds?</button>
+        <div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2">
           <p>The person who owned the property at the time of foreclosure has the right to claim the surplus. If the owner has passed away, their heirs may be able to file a claim instead.</p>
         </div>
       </div>
       <div class="faq-item reveal">
-        <button class="faq-question" aria-expanded="false">What happens if I don't claim the money?</button>
-        <div class="faq-answer">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">What happens if I don't claim the money?</button>
+        <div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3">
           <p>Michigan law sets strict deadlines for filing your claim. If you miss them, the county or state government keeps your money. That's why it's important to act quickly.</p>
         </div>
       </div>
       <div class="faq-item reveal">
-        <button class="faq-question" aria-expanded="false">How long does the process take?</button>
-        <div class="faq-answer">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">How long does the process take?</button>
+        <div class="faq-answer" id="faq-a4" role="region" aria-labelledby="faq-q4">
           <p>Michigan law allows the county to hold your funds for up to 10 months after the auction. We work to get your money to you as fast as the law allows.</p>
         </div>
       </div>
       <div class="faq-item reveal">
-        <button class="faq-question" aria-expanded="false">How much does it cost to work with you?</button>
-        <div class="faq-answer">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">How much does it cost to work with you?</button>
+        <div class="faq-answer" id="faq-a5" role="region" aria-labelledby="faq-q5">
           <p>Nothing upfront. We only get paid if we successfully recover your surplus money. Our fee is a percentage of what we get back, so there's no financial risk to you.</p>
         </div>
       </div>
       <div class="faq-item reveal">
-        <button class="faq-question" aria-expanded="false">Do I need a lawyer to file?</button>
-        <div class="faq-answer">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a6" id="faq-q6">Do I need a lawyer to file?</button>
+        <div class="faq-answer" id="faq-a6" role="region" aria-labelledby="faq-q6">
           <p>You're allowed to file on your own. But the process involves legal forms, court filings, and tight deadlines. One mistake can cost you your entire claim. We make sure everything is done right.</p>
         </div>
       </div>
       <div class="faq-item reveal">
-        <button class="faq-question" aria-expanded="false">How do I get started?</button>
-        <div class="faq-answer">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a7" id="faq-q7">How do I get started?</button>
+        <div class="faq-answer" id="faq-a7" role="region" aria-labelledby="faq-q7">
           <p>Just call or text us at <strong>(734) 215-5540</strong> for a free consultation. We'll walk you through everything and let you know if you have a claim.</p>
         </div>
       </div>
@@ -1721,7 +1899,12 @@
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-logo">Surplus <span>Secure</span></div>
-    <p>&copy; 2026 Surplus Secure. All rights reserved.</p>
+    <address style="font-style:normal;color:rgba(255,255,255,0.72);font-size:0.8rem;line-height:1.8;margin:0.75rem 0;">
+      455 E Eisenhower Pkwy, Ste. 300, Ann Arbor, MI 48108<br>
+      <a href="tel:+17342155540" style="color:rgba(255,255,255,0.72);">(734) 215-5540</a> &middot;
+      <a href="mailto:kelli@surplussecure.com" style="color:rgba(255,255,255,0.72);">kelli@surplussecure.com</a>
+    </address>
+    <p>&copy; 2026 Surplus Secure. All rights reserved. &middot; <a href="/privacy.html" style="color:rgba(255,255,255,0.72);">Privacy Policy</a></p>
     <div class="footer-disclaimer">
       This website is for informational purposes only and does not constitute legal advice. Contacting Surplus Secure does not create an attorney-client relationship. Past results do not guarantee future outcomes.
     </div>
@@ -1805,10 +1988,10 @@
 
   <!-- Exit Intent Popup -->
   <div class="exit-overlay" id="exitOverlay"></div>
-  <div class="exit-popup" id="exitPopup">
+  <div class="exit-popup" id="exitPopup" role="dialog" aria-modal="true" aria-labelledby="exitPopupTitle" aria-hidden="true">
     <button class="exit-popup-close" aria-label="Close">&times;</button>
-    <div class="exit-popup-icon">💛</div>
-    <h3>Before you go — can I share something?</h3>
+    <div class="exit-popup-icon" aria-hidden="true">💛</div>
+    <h3 id="exitPopupTitle">Before you go — can I share something?</h3>
     <p>I know this situation feels overwhelming. I've been a real estate attorney for 40 years, and I've seen firsthand how many people walk away from money that's rightfully theirs — simply because they didn't know it existed or didn't think they could get it back.<br><br>If your home was sold at a tax foreclosure auction in Michigan, there may be real money waiting for you. A quick call or text costs you nothing, and I'll personally look into your case.</p>
     <a href="tel:+17342155540" class="btn-primary"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> Call Me — (734) 215-5540</a>
     <a href="sms:+17342155540?body=Hi%20Kelli%2C%20I%27d%20like%20to%20find%20out%20if%20I%27m%20owed%20surplus%20funds." class="btn-outline">💬 Text Me Instead</a>
@@ -1825,22 +2008,61 @@
     var loadTime = Date.now();
     var idleTimer = null;
 
+    var lastFocused = null;
+    var popupEl = document.getElementById('exitPopup');
+
+    function focusables() {
+      // NB: don't filter on offsetParent — it is null for everything inside a
+      // position:fixed dialog, which would empty this list and silently
+      // disable both the initial focus and the tab trap.
+      return Array.prototype.slice.call(
+        popupEl.querySelectorAll('a[href], button:not([disabled])')
+      ).filter(function (el) { return el.getClientRects().length > 0; });
+    }
+
     function showPopup() {
       if (shown) return;
       if (Date.now() - loadTime < minTime) return;
       shown = true;
       try { localStorage.setItem('ss_exit_seen', '1'); } catch(e) {}
+      lastFocused = document.activeElement;
       document.getElementById('exitOverlay').classList.add('active');
-      document.getElementById('exitPopup').classList.add('active');
+      popupEl.classList.add('active');
+      popupEl.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      // Move focus into the dialog, otherwise keyboard and screen-reader users
+      // are left tabbing through the page behind a scroll-locked overlay.
+      // Deferred a frame so the dialog is laid out and visible before focus().
+      requestAnimationFrame(function () {
+        var f = focusables();
+        if (f.length) f[0].focus();
+      });
       if (idleTimer) clearTimeout(idleTimer);
     }
 
     function closePopup() {
+      if (!popupEl.classList.contains('active')) return;
       document.getElementById('exitOverlay').classList.remove('active');
-      document.getElementById('exitPopup').classList.remove('active');
+      popupEl.classList.remove('active');
+      popupEl.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      // Restore focus to whatever had it before the dialog opened. If that was
+      // the body (nothing focused), blur instead so focus doesn't get stranded
+      // on a now-hidden control inside the dialog.
+      if (lastFocused && lastFocused !== document.body && typeof lastFocused.focus === 'function') lastFocused.focus();
+      else if (document.activeElement && popupEl.contains(document.activeElement)) document.activeElement.blur();
+      lastFocused = null;
     }
+
+    // Keep Tab inside the dialog while it is open.
+    popupEl.addEventListener('keydown', function (e) {
+      if (e.key !== 'Tab') return;
+      var f = focusables();
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
 
     // Desktop: mouse leaves viewport top
     document.addEventListener('mouseout', function(e) {
@@ -1887,7 +2109,11 @@
   <!-- KV Content Injection — pulls editable overrides from admin dashboard -->
   <script>
   (async()=>{try{
-    const r=await fetch((document.querySelector('meta[name="admin-api"]')||{content:''}).content+'/api/content/public');
+    // No admin API configured yet. Without this guard the empty meta made the
+    // URL relative, so every page load fired a 404 at /api/content/public.
+    const base=(document.querySelector('meta[name="admin-api"]')||{content:''}).content;
+    if(!base)return;
+    const r=await fetch(base+'/api/content/public');
     if(!r.ok)return;const c=await r.json();
     document.querySelectorAll('[data-editable]').forEach(el=>{
       const k=el.dataset.editable;if(c[k])el.textContent=c[k];
@@ -1903,6 +2129,45 @@
     var msg = document.getElementById('ssFormMsg');
     var WORKER_URL = 'https://ss-form.kelli-6a0.workers.dev';
 
+    // ── Turnstile (contact-form spam check) ────────────────────────────────
+    // Paste the real Turnstile site key for surplussecure.com here, and set the
+    // matching CAPTCHA_SECRET_KEY secret on the ss-form Worker:
+    //     echo '<secret>' | wrangler secret put CAPTCHA_SECRET_KEY
+    // Both must be set together. While this is empty the widget never renders,
+    // api.js is never fetched, and the Worker skips verification — the form
+    // keeps working on the honeypot alone. Setting it turns enforcement on at
+    // both ends automatically.
+    var TURNSTILE_SITEKEY = '0x4AAAAAAEDF4NMNIv8PA0qL';
+    var CAPTCHA_ENABLED = !!TURNSTILE_SITEKEY && TURNSTILE_SITEKEY.indexOf('REPLACE_WITH') === -1;
+    var captchaRendered = false;
+
+    if (CAPTCHA_ENABLED) {
+      var box = document.getElementById('ssCaptcha');
+      if (box) {
+        box.setAttribute('data-sitekey', TURNSTILE_SITEKEY);
+        box.style.display = '';
+        var s = document.createElement('script');
+        s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+        s.async = true;
+        s.defer = true;
+        // If the CDN is unreachable the widget simply never renders and we fall
+        // back to the honeypot, instead of dead-ending the visitor.
+        s.onerror = function () { captchaRendered = false; box.style.display = 'none'; };
+        document.head.appendChild(s);
+        // The widget injects an iframe + hidden input once it renders.
+        var watch = setInterval(function () {
+          if (box.querySelector('iframe, [name="cf-turnstile-response"]')) {
+            captchaRendered = true;
+            clearInterval(watch);
+          }
+        }, 250);
+        setTimeout(function () {
+          clearInterval(watch);
+          if (!captchaRendered) box.style.display = 'none';
+        }, 8000);
+      }
+    }
+
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       var name = form.firstName.value.trim();
@@ -1911,6 +2176,28 @@
 
       if (!name) { showMsg('Please enter your first name.', true); return; }
       if (!phone && !email) { showMsg('Please provide a phone number or email so we can reach you.', true); return; }
+      // The form is novalidate, so nothing else checks these. Without this a
+      // typo'd address submits "successfully" and the lead is unreachable.
+      if (email && !/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) {
+        showMsg('That email address doesn’t look right. Please check it, or leave it blank and give us a phone number instead.', true);
+        form.email.focus();
+        return;
+      }
+      if (phone && phone.replace(/\D/g, '').length < 10) {
+        showMsg('That phone number looks too short. Please include the area code, or leave it blank and give us an email instead.', true);
+        form.phone.focus();
+        return;
+      }
+      // Only require a token when the widget is actually configured AND has
+      // rendered. If Turnstile is unconfigured, blocked by an extension, or
+      // its CDN is down, we fall back to the honeypot rather than telling a
+      // visitor to "complete the verification check above" when there is no
+      // widget on screen for them to complete.
+      var turnstileToken = (form.querySelector('[name="cf-turnstile-response"]') || {}).value || '';
+      if (CAPTCHA_ENABLED && captchaRendered && !turnstileToken) {
+        showMsg('Please complete the verification check above before submitting.', true);
+        return;
+      }
 
       btn.disabled = true;
       btn.textContent = 'Sending...';
@@ -1920,10 +2207,12 @@
       fd.append('phone', phone);
       fd.append('email', email);
       fd.append('website', form.querySelector('[name="website"]').value);
+      fd.append('cf-turnstile-response', turnstileToken);
 
       fetch(WORKER_URL, { method: 'POST', body: fd })
         .then(function(r) { return r.json(); })
         .then(function(data) {
+          if (window.turnstile) { window.turnstile.reset(); }
           if (data.success) {
             form.reset();
             showMsg("Thank you, " + name + ". Kelli will be in touch shortly \u2014 no pressure, no obligation.", false);
@@ -1935,6 +2224,7 @@
           }
         })
         .catch(function() {
+          if (window.turnstile) { window.turnstile.reset(); }
           showMsg('Connection error. Please try calling (734) 215-5540.', true);
           btn.textContent = 'Get in Touch'; btn.disabled = false;
         });
@@ -1957,11 +2247,21 @@
       var wrap = document.createElement('div');
       wrap.className = 'hero-video-trigger hero-video-active';
       var video = document.createElement('video');
+      // Carry the trigger's accessible name onto the player that replaces it.
+      video.setAttribute('aria-label', trigger.getAttribute('aria-label') || '');
+      video.poster = 'hero-poster.webp';
       video.src = 'hero-video.mp4';
       video.controls = true;
       video.autoplay = true;
       video.playsInline = true;
       video.preload = 'auto';
+      var track = document.createElement('track');
+      track.kind = 'captions';
+      track.label = 'English';
+      track.srclang = 'en';
+      track.src = 'captions-en.vtt';
+      track.default = true;
+      video.appendChild(track);
       wrap.appendChild(video);
       trigger.replaceWith(wrap);
       var play = video.play();
