@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | Surplus Secure</title>
+<meta name="description" content="How Surplus Secure handles information submitted through our Michigan tax foreclosure surplus fund recovery contact form.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://surplussecure.com/privacy.html">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/svg+xml" href="/icon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#1E3352">
+<link rel="preload" href="/fonts/source-sans-3-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-serif-display-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  /* ───── SELF-HOSTED FONTS (no third-party CDN) ───── */
+  @font-face {
+    font-family: 'DM Serif Display';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/dm-serif-display-400-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'DM Serif Display';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/dm-serif-display-400-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Source Sans 3';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url('/fonts/source-sans-3-var-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'Source Sans 3';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url('/fonts/source-sans-3-var-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  :root {
+    --gold: #C8A456;
+    --gold-text: #866A2C;
+    --navy: #243A5C;
+    --navy-deep: #1E3352;
+    --cream: #FAF7F2;
+    --text-dark: #1A1A2E;
+    --text-body: #3A3A4A;
+    --text-muted: #686E7C;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --cream: #0D1820;
+      --text-dark: #E0DAD0;
+      --text-body: #C0CAD4;
+      --text-muted: #8898A8;
+      --gold-text: #E8D5A0;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Source Sans 3', -apple-system, sans-serif;
+    background: var(--cream);
+    color: var(--text-body);
+    line-height: 1.7;
+  }
+  header {
+    background: var(--navy-deep);
+    padding: 1.25rem 1.5rem;
+  }
+  header a {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.25rem;
+  }
+  header a span { color: var(--gold); }
+  main {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+  h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    color: var(--navy);
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
+    margin-bottom: 0.25rem;
+  }
+  .updated { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 2rem; }
+  h2 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    color: var(--navy);
+    font-size: 1.3rem;
+    margin: 2rem 0 0.75rem;
+  }
+  p { margin: 0 0 1rem; }
+  a { color: var(--gold-text); }
+  .dsr-form {
+    background: var(--navy-deep);
+    color: rgba(255,255,255,0.9);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+  }
+  .dsr-form label { display: block; font-size: 0.85rem; margin-bottom: 0.35rem; }
+  .dsr-form input, .dsr-form select {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 1rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+  }
+  .dsr-form button {
+    background: var(--gold);
+    color: var(--navy-deep);
+    border: none;
+    border-radius: 8px;
+    padding: 0.65rem 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .dsr-form button:hover { background: var(--gold-light, #E8D5A0); }
+  #dsrMsg { margin-top: 0.75rem; font-size: 0.9rem; }
+  footer {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+<header>
+  <a href="/">Surplus <span>Secure</span></a>
+</header>
+<main>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: July 31, 2026</p>
+
+  <h2>What we collect</h2>
+  <p>Surplus Secure collects only what you submit through our contact form on <a href="/">surplussecure.com</a>: your first name, and a phone number and/or email address so we can reach you. We don't run analytics, tracking cookies, or advertising pixels on this site — nothing about your visit is collected unless you submit the form.</p>
+
+  <h2>How it's used</h2>
+  <p>Form submissions are relayed directly to attorney Kelli Meeks by email for case evaluation. We do not store submissions in a database on our own servers — the website itself holds nothing after your submission is relayed. Your information is used solely to respond to your inquiry about recovering tax foreclosure surplus funds.</p>
+
+  <h2>Cookies</h2>
+  <p>We don't set tracking or advertising cookies. Submitting the contact form runs a Cloudflare Turnstile check (a privacy-respecting alternative to traditional CAPTCHAs) to block automated spam, which may set a short-lived functional cookie as part of that check.</p>
+
+  <h2>Retention</h2>
+  <p>Because the website has no database, there's nothing here to "retain" beyond the moment your submission is relayed to Kelli's inbox. Any further retention of your information follows from the resulting email correspondence or, if you become a client, your case file — not from this website.</p>
+
+  <h2>Your rights</h2>
+  <p>You can ask us to tell you what we have or to delete prior correspondence. Since the site itself stores nothing, we'll act on your request directly in email. Submit a request below, or email <a href="mailto:kelli@surplussecure.com">kelli@surplussecure.com</a> directly.</p>
+
+  <div class="dsr-form">
+    <form id="dsrForm">
+      <label for="dsrEmail">Your email address</label>
+      <input type="email" id="dsrEmail" name="email" required placeholder="you@example.com" autocomplete="email">
+      <label for="dsrType">Request type</label>
+      <select id="dsrType" name="type">
+        <option value="request">Tell me what information you have about me</option>
+        <option value="delete">Delete my information / prior correspondence</option>
+      </select>
+      <button type="submit" id="dsrSubmitBtn">Submit Request</button>
+      <div id="dsrMsg" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+
+  <h2>Contact / Data Controller</h2>
+  <p>Surplus Secure, 455 E Eisenhower Pkwy, Ste. 300, Ann Arbor, MI 48108 &middot; <a href="mailto:kelli@surplussecure.com">kelli@surplussecure.com</a> &middot; <a href="tel:+17342155540">(734) 215-5540</a></p>
+</main>
+<footer>
+  &copy; 2026 Surplus Secure. All rights reserved. &middot; <a href="/">Back to home</a>
+</footer>
+<script>
+  (function () {
+    var form = document.getElementById('dsrForm');
+    var btn = document.getElementById('dsrSubmitBtn');
+    var msg = document.getElementById('dsrMsg');
+    var WORKER_URL = 'https://ss-form.kelli-6a0.workers.dev';
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = form.email.value.trim();
+      var type = form.type.value;
+      if (!email) return;
+
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      var fd = new FormData();
+      fd.append('email', email);
+
+      var path = type === 'delete' ? '/api/data-delete' : '/api/data-request';
+
+      fetch(WORKER_URL + path, { method: 'POST', body: fd })
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          msg.textContent = data.message || (data.success ? 'Request received.' : (data.error || 'Something went wrong.'));
+          msg.style.color = data.success ? '#9CD6B0' : '#E8A0A0';
+          if (data.success) form.reset();
+        })
+        .catch(function () {
+          msg.textContent = 'Connection error. Please email kelli@surplussecure.com directly.';
+          msg.style.color = '#E8A0A0';
+        })
+        .finally(function () {
+          btn.disabled = false;
+          btn.textContent = 'Submit Request';
+        });
+    });
+  })();
+</script>
+</body>
+</html>

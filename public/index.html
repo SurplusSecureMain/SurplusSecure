@@ -4,8 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Surplus Secure | Michigan Tax Foreclosure Surplus Fund Recovery — Ann Arbor Attorney</title>
-<meta name="description" content="Surplus Secure helps Michigan homeowners recover surplus funds after tax foreclosure. Led by attorney Kelli Meeks with 40 years of experience. No upfront cost — we only get paid when you get paid. Call or text (734) 215-5540 for a free consultation.">
+<title>Surplus Secure | Michigan Tax Foreclosure Fund Recovery</title>
+<meta name="description" content="Surplus Secure helps Michigan homeowners recover surplus funds after tax foreclosure. Attorney-led, no upfront cost. Call or text (734) 215-5540.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="admin-api" content=""><!-- Set to https://admin.surplussecure.com after deploy -->
 <meta name="theme-color" content="#1E3352">
@@ -13,6 +13,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/svg+xml" href="/icon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Surplus Secure">
 <meta property="og:title" content="Surplus Secure — Recover Your Money After Tax Foreclosure in Michigan">
@@ -70,6 +71,15 @@
     "worksFor": { "@id": "https://surplussecure.com/#legal-service" },
     "description": "Licensed Michigan attorney with 40 years of real estate law experience specializing in tax foreclosure surplus fund recovery.",
     "image": "https://surplussecure.com/images/kelli-meeks-attorney.webp"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://surplussecure.com/#website",
+    "name": "Surplus Secure",
+    "url": "https://surplussecure.com/",
+    "publisher": { "@id": "https://surplussecure.com/#legal-service" },
+    "inLanguage": "en-US"
   },
   {
     "@context": "https://schema.org",
@@ -1339,6 +1349,42 @@
   }
   .skip-link:focus { top: 1rem; }
 
+  /* ───── CONSENT BANNER ───── */
+  .consent-banner {
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 9000;
+    max-width: 640px;
+    margin: 0 auto;
+    background: var(--navy-deep);
+    color: rgba(255,255,255,0.88);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-elevated);
+    padding: 1rem 1.25rem;
+    display: none;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+  .consent-banner.visible { display: flex; }
+  .consent-banner p { margin: 0; flex: 1 1 320px; }
+  .consent-banner button {
+    background: var(--gold);
+    color: var(--navy-deep);
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1.25rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    flex: 0 0 auto;
+  }
+  .consent-banner button:hover { background: var(--gold-light); }
+
   :focus-visible {
     outline: 3px solid var(--gold);
     outline-offset: 3px;
@@ -1472,6 +1518,25 @@
 
 <a href="#main" class="skip-link">Skip to main content</a>
 
+<div class="consent-banner" id="consentBanner" role="region" aria-label="Cookie and privacy notice">
+  <p>This site sets no tracking cookies and uses no analytics. Submitting the contact form runs a Cloudflare Turnstile spam check, which may set a functional cookie. See our <a href="/privacy.html" style="color:var(--gold-light);">Privacy Policy</a>.</p>
+  <button type="button" id="consentBannerOk">Got it</button>
+</div>
+<script>
+  (function () {
+    var KEY = 'ssConsentAcknowledged';
+    var banner = document.getElementById('consentBanner');
+    if (!banner) return;
+    if (!sessionStorage.getItem(KEY)) {
+      banner.classList.add('visible');
+    }
+    document.getElementById('consentBannerOk').addEventListener('click', function () {
+      sessionStorage.setItem(KEY, '1');
+      banner.classList.remove('visible');
+    });
+  })();
+</script>
+
 <!-- NAV -->
 
 <nav class="nav" id="nav">
@@ -1522,7 +1587,7 @@
     </div>
     <div class="hero-media">
       <button type="button" class="hero-video-trigger" id="heroVideoTrigger" aria-label="Play introduction video from attorney Kelli Meeks">
-        <img class="hero-video-poster" src="hero-poster.webp" alt="" width="1080" height="1080" fetchpriority="high" decoding="async">
+        <img class="hero-video-poster" src="hero-poster.webp" alt="Attorney Kelli Meeks introduces Surplus Secure — tap to play her welcome video" width="1080" height="1080" fetchpriority="high" decoding="async">
         <span class="hero-video-play" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="28" height="28"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
         </span>
@@ -1583,6 +1648,7 @@
         <p style="font-size:0.82rem;color:var(--text-muted);margin:-0.25rem 0 1rem;font-style:italic;">Phone or email — whichever you prefer. We just need a way to reach you.</p>
         <!-- Honeypot -->
         <div style="position:absolute;left:-9999px;" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAAA_REPLACE_WITH_REAL_SITE_KEY" data-theme="auto" style="margin-bottom:1rem;"></div>
         <button type="submit" class="form-submit" id="ssSubmitBtn">Get in Touch</button>
         <div id="ssFormMsg" role="status" aria-live="polite" style="display:none;margin-top:0.75rem;padding:0.75rem 1rem;border-radius:8px;font-size:0.9rem;line-height:1.5;"></div>
       </form>
@@ -1826,7 +1892,12 @@
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-logo">Surplus <span>Secure</span></div>
-    <p>&copy; 2026 Surplus Secure. All rights reserved.</p>
+    <address style="font-style:normal;color:rgba(255,255,255,0.72);font-size:0.8rem;line-height:1.8;margin:0.75rem 0;">
+      455 E Eisenhower Pkwy, Ste. 300, Ann Arbor, MI 48108<br>
+      <a href="tel:+17342155540" style="color:rgba(255,255,255,0.72);">(734) 215-5540</a> &middot;
+      <a href="mailto:kelli@surplussecure.com" style="color:rgba(255,255,255,0.72);">kelli@surplussecure.com</a>
+    </address>
+    <p>&copy; 2026 Surplus Secure. All rights reserved. &middot; <a href="/privacy.html" style="color:rgba(255,255,255,0.72);">Privacy Policy</a></p>
     <div class="footer-disclaimer">
       This website is for informational purposes only and does not constitute legal advice. Contacting Surplus Secure does not create an attorney-client relationship. Past results do not guarantee future outcomes.
     </div>
@@ -2071,6 +2142,11 @@
         form.phone.focus();
         return;
       }
+      var turnstileToken = (form.querySelector('[name="cf-turnstile-response"]') || {}).value || '';
+      if (!turnstileToken) {
+        showMsg('Please complete the verification check above before submitting.', true);
+        return;
+      }
 
       btn.disabled = true;
       btn.textContent = 'Sending...';
@@ -2080,10 +2156,12 @@
       fd.append('phone', phone);
       fd.append('email', email);
       fd.append('website', form.querySelector('[name="website"]').value);
+      fd.append('cf-turnstile-response', turnstileToken);
 
       fetch(WORKER_URL, { method: 'POST', body: fd })
         .then(function(r) { return r.json(); })
         .then(function(data) {
+          if (window.turnstile) { window.turnstile.reset(); }
           if (data.success) {
             form.reset();
             showMsg("Thank you, " + name + ". Kelli will be in touch shortly \u2014 no pressure, no obligation.", false);
@@ -2095,6 +2173,7 @@
           }
         })
         .catch(function() {
+          if (window.turnstile) { window.turnstile.reset(); }
           showMsg('Connection error. Please try calling (734) 215-5540.', true);
           btn.textContent = 'Get in Touch'; btn.disabled = false;
         });
