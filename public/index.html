@@ -13,7 +13,10 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/svg+xml" href="/icon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
+<!-- Turnstile's api.js is injected by the contact-form script, and only when a
+     real site key is configured. Loading it unconditionally from <head> meant
+     an unconfigured (placeholder) key still cost every visitor a third-party
+     request, and still hard-broke the form. See the contact-form script. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Surplus Secure">
 <meta property="og:title" content="Surplus Secure — Recover Your Money After Tax Foreclosure in Michigan">
@@ -1648,7 +1651,11 @@
         <p style="font-size:0.82rem;color:var(--text-muted);margin:-0.25rem 0 1rem;font-style:italic;">Phone or email — whichever you prefer. We just need a way to reach you.</p>
         <!-- Honeypot -->
         <div style="position:absolute;left:-9999px;" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAAAA_REPLACE_WITH_REAL_SITE_KEY" data-theme="auto" style="margin-bottom:1rem;"></div>
+        <!-- Spam check. Stays hidden and inert until a real site key is set
+             below (search TURNSTILE_SITEKEY); the honeypot above runs either
+             way. Never hard-gate submission on this: a dead widget means a
+             dead contact form, which is the only conversion path on the site. -->
+        <div id="ssCaptcha" class="cf-turnstile" data-theme="auto" style="margin-bottom:1rem;display:none;"></div>
         <button type="submit" class="form-submit" id="ssSubmitBtn">Get in Touch</button>
         <div id="ssFormMsg" role="status" aria-live="polite" style="display:none;margin-top:0.75rem;padding:0.75rem 1rem;border-radius:8px;font-size:0.9rem;line-height:1.5;"></div>
       </form>
@@ -2122,6 +2129,45 @@
     var msg = document.getElementById('ssFormMsg');
     var WORKER_URL = 'https://ss-form.kelli-6a0.workers.dev';
 
+    // ── Turnstile (contact-form spam check) ────────────────────────────────
+    // Paste the real Turnstile site key for surplussecure.com here, and set the
+    // matching CAPTCHA_SECRET_KEY secret on the ss-form Worker:
+    //     echo '<secret>' | wrangler secret put CAPTCHA_SECRET_KEY
+    // Both must be set together. While this is empty the widget never renders,
+    // api.js is never fetched, and the Worker skips verification — the form
+    // keeps working on the honeypot alone. Setting it turns enforcement on at
+    // both ends automatically.
+    var TURNSTILE_SITEKEY = '';
+    var CAPTCHA_ENABLED = !!TURNSTILE_SITEKEY && TURNSTILE_SITEKEY.indexOf('REPLACE_WITH') === -1;
+    var captchaRendered = false;
+
+    if (CAPTCHA_ENABLED) {
+      var box = document.getElementById('ssCaptcha');
+      if (box) {
+        box.setAttribute('data-sitekey', TURNSTILE_SITEKEY);
+        box.style.display = '';
+        var s = document.createElement('script');
+        s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+        s.async = true;
+        s.defer = true;
+        // If the CDN is unreachable the widget simply never renders and we fall
+        // back to the honeypot, instead of dead-ending the visitor.
+        s.onerror = function () { captchaRendered = false; box.style.display = 'none'; };
+        document.head.appendChild(s);
+        // The widget injects an iframe + hidden input once it renders.
+        var watch = setInterval(function () {
+          if (box.querySelector('iframe, [name="cf-turnstile-response"]')) {
+            captchaRendered = true;
+            clearInterval(watch);
+          }
+        }, 250);
+        setTimeout(function () {
+          clearInterval(watch);
+          if (!captchaRendered) box.style.display = 'none';
+        }, 8000);
+      }
+    }
+
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       var name = form.firstName.value.trim();
@@ -2142,8 +2188,13 @@
         form.phone.focus();
         return;
       }
+      // Only require a token when the widget is actually configured AND has
+      // rendered. If Turnstile is unconfigured, blocked by an extension, or
+      // its CDN is down, we fall back to the honeypot rather than telling a
+      // visitor to "complete the verification check above" when there is no
+      // widget on screen for them to complete.
       var turnstileToken = (form.querySelector('[name="cf-turnstile-response"]') || {}).value || '';
-      if (!turnstileToken) {
+      if (CAPTCHA_ENABLED && captchaRendered && !turnstileToken) {
         showMsg('Please complete the verification check above before submitting.', true);
         return;
       }

@@ -120,9 +120,18 @@ export default {
         return json({ success: false, error: "Please provide a phone number or email." }, 400);
       }
 
-      const captchaOk = await verifyTurnstile(turnstileToken, env.CAPTCHA_SECRET_KEY, request.headers.get("CF-Connecting-IP"));
-      if (!captchaOk) {
-        return json({ success: false, error: "Verification failed. Please try again." }, 400);
+      // Turnstile enforces only when it is actually configured. With no
+      // CAPTCHA_SECRET_KEY there is nothing to verify against, and rejecting
+      // every submission would take down the only conversion path on the site
+      // — the honeypot above still runs. Setting the secret (together with
+      // TURNSTILE_SITEKEY in index.html) turns enforcement on.
+      if (env.CAPTCHA_SECRET_KEY) {
+        const captchaOk = await verifyTurnstile(turnstileToken, env.CAPTCHA_SECRET_KEY, request.headers.get("CF-Connecting-IP"));
+        if (!captchaOk) {
+          return json({ success: false, error: "Verification failed. Please try again." }, 400);
+        }
+      } else if (turnstileToken) {
+        console.warn("Turnstile token received but CAPTCHA_SECRET_KEY is unset — skipping verification");
       }
 
       // Apps Script /exec returns 302 to script.googleusercontent.com/macros/echo;
