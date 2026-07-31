@@ -2137,7 +2137,7 @@
     // api.js is never fetched, and the Worker skips verification — the form
     // keeps working on the honeypot alone. Setting it turns enforcement on at
     // both ends automatically.
-    var TURNSTILE_SITEKEY = '';
+    var TURNSTILE_SITEKEY = '0x4AAAAAAEDF4NMNIv8PA0qL';
     var CAPTCHA_ENABLED = !!TURNSTILE_SITEKEY && TURNSTILE_SITEKEY.indexOf('REPLACE_WITH') === -1;
     var captchaRendered = false;
 
@@ -2255,6 +2255,13 @@
       video.autoplay = true;
       video.playsInline = true;
       video.preload = 'auto';
+      var track = document.createElement('track');
+      track.kind = 'captions';
+      track.label = 'English';
+      track.srclang = 'en';
+      track.src = 'captions-en.vtt';
+      track.default = true;
+      video.appendChild(track);
       wrap.appendChild(video);
       trigger.replaceWith(wrap);
       var play = video.play();
