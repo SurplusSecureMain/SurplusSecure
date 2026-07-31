@@ -1,0 +1,89 @@
+name: Deploy site to Cloudflare Pages
+
+# Pages is NOT Git-connected to this repo, so nothing ships on merge by
+# itself. This workflow is the deploy. It always deploys `public/` and never
+# the repo root — deploying the root is what put CLAUDE.md, docs/, platform/
+# and the admin dashboard's auth source on the public site until 2026-07-09.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'public/**'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy public/ to Cloudflare Pages
+    steps:
+      - uses: actions/checkout@v4
+
+      # Cheap guard rails. A deploy that ships the wrong tree is worse than a
+      # deploy that doesn't happen, so fail loudly before touching Cloudflare.
+      - name: Verify deploy directory
+        run: |
+          set -euo pipefail
+          test -f public/index.html || { echo "::error::public/index.html missing — refusing to deploy"; exit 1; }
+          for f in public/robots.txt public/sitemap.xml public/llms.txt public/_headers; do
+            test -f "$f" || { echo "::error::$f missing — refusing to deploy"; exit 1; }
+          done
+          # Nothing outside public/ may ever reach the CDN.
+          for leaked in CLAUDE.md docs platform county-database workers brand-assets tools admin-preview .git; do
+            if [ -e "public/$leaked" ]; then
+              echo "::error::public/$leaked exists — non-public content would be published"
+              exit 1
+            fi
+          done
+          # The CSP forbids third-party origins; catch a reintroduced CDN early.
+          if grep -qE 'fonts\.googleapis\.com|fonts\.gstatic\.com|use\.typekit\.net' public/index.html; then
+            echo "::error::third-party font CDN reference found in public/index.html"
+            exit 1
+          fi
+          echo "public/ contents:"; ls -la public/
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: >-
+            pages deploy public/
+            --project-name surplus-secure
+            --branch main
+            --commit-dirty=true
+
+      - name: Verify live site
+        run: |
+          set -euo pipefail
+          echo "Waiting for propagation..."
+          sleep 20
+          code=$(curl -s -o /dev/null -w '%{http_code}' https://surplussecure.com/)
+          echo "GET / -> $code"
+          [ "$code" = "200" ] || { echo "::error::homepage returned $code"; exit 1; }
+
+          echo "--- security headers ---"
+          headers=$(curl -sI https://surplussecure.com/)
+          echo "$headers"
+          for h in strict-transport-security x-frame-options x-content-type-options referrer-policy permissions-policy content-security-policy; do
+            echo "$headers" | grep -qi "^$h:" || echo "::warning::missing header $h (check public/_headers)"
+          done
+
+          echo "--- static files ---"
+          for p in robots.txt llms.txt sitemap.xml og-image.png favicon-32.png; do
+            c=$(curl -s -o /dev/null -w '%{http_code}' "https://surplussecure.com/$p")
+            echo "$p -> $c"
+            [ "$c" = "200" ] || echo "::warning::/$p returned $c"
+          done
+
+          echo "--- nothing private is served ---"
+          for p in CLAUDE.md docs/ platform/ workers/ .git/config; do
+            c=$(curl -s -o /dev/null -w '%{http_code}' "https://surplussecure.com/$p")
+            echo "$p -> $c"
+            if [ "$c" = "200" ]; then echo "::error::/$p is publicly readable"; exit 1; fi
+          done

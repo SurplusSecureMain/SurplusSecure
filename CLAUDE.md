@@ -55,7 +55,11 @@ The Worker handles the Apps Script 302 manually — `script.google.com/.../exec`
 2. Edit. Commit. Push.
 3. `gh pr create --base main --head <branch> --title ... --body ...`
 4. `gh pr merge <num> --squash --delete-branch --repo SurplusSecureMain/SurplusSecure`
-5. **Pages is NOT Git-connected.** Manually redeploy:
+5. **Deploy is automatic.** Pages is still not Git-connected, but `.github/workflows/deploy-pages.yml` runs `wrangler pages deploy public/` on every push to `main` that touches `public/**`, using the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repo secrets. Merging the PR ships the site. The workflow can also be run by hand from the Actions tab (`workflow_dispatch`).
+
+   The workflow refuses to deploy if `public/index.html` or any of the four AEO files are missing, if anything non-public has been copied into `public/`, or if a third-party font CDN reappears in `index.html`. After deploying it asserts the homepage is 200, warns on any missing security header, and **fails** if `CLAUDE.md`, `docs/`, `platform/`, `workers/` or `.git/config` are publicly readable.
+
+   To deploy manually instead:
    ```
    export CLOUDFLARE_API_TOKEN=<...>
    export CLOUDFLARE_ACCOUNT_ID=6a09797d8994f0915708aec9f6354645
